@@ -1,0 +1,70 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+#Extra
+Makefile
+*.moc
+*.so.*
+
+#Docs
+yate/docs/
+
+#Yate 
+*.yate
+
+#Seperate files
+autom4te.cache
+yate/clients/yate-qt4
+yate/config.log
+yate/config.status
+yate/configure
+yate/libs/ysig/yate-ss7test
+yate/packing/portage/yate.ebuild
+yate/packing/rpm/yate.spec
+yate/run
+yate/yate
+yate/yate-config
+yate/yate-config.in
+yate/yate.pc
+yate/yateiss.inc
+yate/yatepaths.h
+yate/yateversn.h
+yatebts/config.h
+yatebts/config.log
+yatebts/config.status
+yatebts/configure
+yatebts/mbts/apps/mbts
+yatebts/nipc/auth/do_nipc_comp128
+yatebts/nipc/auth/do_nipc_milenage
+yatebts/yate-bts.spec
+
