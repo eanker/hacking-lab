@@ -1,0 +1,5 @@
+._*
+debian/debhelper.log
+debian/files
+debian/substvars
+debian/tmp/

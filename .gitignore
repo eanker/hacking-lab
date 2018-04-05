@@ -10,10 +10,10 @@ CommonLibs
 libzmq
 RRLP
 #smqueue
-sqlite3
-subscriberRegistry
-asterisk-config
-asterisk
+#sqlite3
+#subscriberRegistry
+#asterisk-config
+#asterisk
 libsqliteodbc
-system-config
+#system-config
 libcoredumper
