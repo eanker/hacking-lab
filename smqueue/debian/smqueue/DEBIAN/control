@@ -1,0 +1,11 @@
+Package: smqueue
+Version: 5.0
+Architecture: i386
+Essential: no
+Maintainer: Range Networks, Inc. <info@rangenetworks.com>
+Installed-Size: 4785
+Depends: sqlite3, libosip2-4 | libosip2-10, libzmq3
+Section: comm
+Priority: optional
+Homepage: http://www.rangenetworks.com/
+Description: Range Networks - SMQueue RFC-3428 Store and Forward Server

@@ -1,0 +1,34 @@
+language: cpp
+compiler: gcc
+
+notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#openbts"
+    template:
+      - "%{repository} : %{message} : %{build_url}"
+    on_success: change
+    on_failure: always
+
+git:
+  submodules: false
+
+before_install:
+ - sudo apt-get install -qq libosip2-dev
+ - git clone https://github.com/RangeNetworks/libcoredumper.git
+ - cd libcoredumper
+ - ./build.sh
+ - sudo dpkg -i *.deb
+ - cd ..
+ - sed -i 's/git@github.com:/git:\/\/github.com\//' .gitmodules
+ - git submodule update --init
+ - sed -i 's/git@github.com:/git:\/\/github.com\//' ./SR/.gitmodules
+ - git submodule update --init --recursive
+ - sudo ./NodeManager/install_libzmq.sh
+
+#install:
+#  - sh bootstrap.sh
+
+script:
+  - dpkg-buildpackage -us -uc
+
