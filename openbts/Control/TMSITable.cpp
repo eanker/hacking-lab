@@ -479,6 +479,7 @@ unsigned TMSITable::allocateTmsi()
 
 void TMSITable::tmsiTabUpdate(string imsi, TmsiTableStore *store)
 {
+    LOG(ERR) << "TmsiTableStore kc change "<<LOGVAR(store->kc_changed)<<" new kc "<<LOGVAR(store->kc);
 	LOG(INFO) << "update entry for"<<LOGVAR(imsi) <<LOGVAR(store->auth_changed)<<LOGVAR(store->auth)<<LOGVAR(store->assigned_changed)<<LOGVAR(store->assigned);
 
 	ScopedLock lock(sTmsiMutex,__FILE__,__LINE__); // This lock should be redundant - sql serializes access, but it may prevent sql retry failures.
@@ -553,6 +554,7 @@ uint32_t TMSITable::tmsiTabCreateOrUpdate(
 			queryp->addc("TMSI",tmsi2table(tmsi));
 		}
 	}
+    LOG(ERR) << "TmsiTableStore kc change "<<LOGVAR(store->kc_changed)<<" new kc "<<LOGVAR(store->kc);
 	queryp->addStore(store);
 
 	if (isNewRecord && lai) {
