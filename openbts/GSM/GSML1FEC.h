@@ -35,6 +35,7 @@
 
 #include <a53.h>
 #include "A51.h"
+#include "A52.h"
 
 #include "GSM610Tables.h"
 #include "GSM503Tables.h"
@@ -321,7 +322,7 @@ class L1Decoder {
 	/**@name Parameters fixed by the constructor, not requiring mutex protection. */
 	//@{
 	unsigned mCN;					///< carrier index
-	unsigned mTN;					///< timeslot number 
+	unsigned mTN;					///< timeslot number
 	const TDMAMapping& mMapping;	///< demux parameters
 	L1FEC* mParent;			///< a containing L1 processor, if any
 	/** The channel type. */
@@ -582,7 +583,7 @@ class L1FEC {
 	L1FEC():
 	mEncoder(NULL),mDecoder(NULL)
 	, mGprsReserved(0)
-	, mGPRSFEC(0) 
+	, mGPRSFEC(0)
 	{}
 
 	/** This is no-op because these channels should not be destroyed.
@@ -619,7 +620,7 @@ class L1FEC {
 	void l1open() { l1init(); l1start(); }
 
 	void l1close();	// Called from lcopen when channel is created or from getTCH/getSDCCH.
-	
+
 
 	/**@name Pass-through actions that concern the physical channel. */
 	//@{
@@ -672,7 +673,7 @@ class L1FEC {
 
 	L1Decoder* decoder() { return mDecoder; }
 	L1Encoder* encoder() { return mEncoder; }
-}; 
+};
 extern ostream& operator<<(std::ostream& os, const L1FEC *);
 
 
@@ -851,7 +852,7 @@ class XCCHL1Decoder :
 	  @return true if a new frame is ready for deinterleaving.
 	*/
 	virtual bool processBurst(const RxBurst&);
-	
+
 	/** Finish off a properly-received L2Frame in mU and send it up to L2. */
 	virtual void handleGoodFrame();
 	const char* descriptiveString() const { return L1Decoder::descriptiveString(); }
@@ -897,7 +898,7 @@ class MSPhysReportInfo {
 	bool isValid() const { return mReportCount > 0; }
 	int actualMSPower() const { return mActualMSPower; }
 	int actualMSTiming() const { return mActualMSTiming; }
-	
+
 	/** Set physical parameters for initialization. */
 	void initPhy(float wRSSI, float wTimingError, double wTimestamp);
 
@@ -908,7 +909,7 @@ class MSPhysReportInfo {
 	float getRSSP() const {
 		return mRSSI + gConfig.GSM.MS.Power.Max - mActualMSPower;
 	}
-	
+
 	/** Artificially push down RSSI to induce the handset to push more power. */
 	void RSSIBumpDown(float dB) { mRSSI -= dB; }
 
@@ -1099,11 +1100,11 @@ class TCHFACCHL1Encoder :
 	L2FrameFIFO mL2Q;				///< input queue for L2 FACCH frames
 
 	Thread mEncoderThread;
-	friend void TCHFACCHL1EncoderRoutine( TCHFACCHL1Encoder * encoder );	
+	friend void TCHFACCHL1EncoderRoutine( TCHFACCHL1Encoder * encoder );
 
 public:
 
-	TCHFACCHL1Encoder(unsigned wCN, unsigned wTN, 
+	TCHFACCHL1Encoder(unsigned wCN, unsigned wTN,
 			  const TDMAMapping& wMapping,
 			  L1FEC* wParent);
 
@@ -1124,7 +1125,7 @@ protected:
 
 	/**
 		dispatch called in a while loop.
-		process reading transcoder and fifo to 
+		process reading transcoder and fifo to
 		interleave and send.
 	*/
 	void dispatch();
@@ -1211,7 +1212,7 @@ class TCHFACCHL1Decoder :
 	unsigned stealBitsU[8], stealBitsL[8];	// (pat 1-16-2014) These are single bits; the upper and lower stealing bits found in incoming bursts.
 
 	public:
-	TCHFACCHL1Decoder(unsigned wCN, unsigned wTN, 
+	TCHFACCHL1Decoder(unsigned wCN, unsigned wTN,
 			   const TDMAMapping& wMapping,
 			   L1FEC *wParent);
 
@@ -1270,7 +1271,7 @@ class GeneratorL1Encoder :
 
 	public:
 
-	GeneratorL1Encoder(	
+	GeneratorL1Encoder(
 		unsigned wCN,
 		unsigned wTN,
 		const TDMAMapping& wMapping,
@@ -1280,7 +1281,7 @@ class GeneratorL1Encoder :
 
 	void serviceStart();
 
-	protected: 
+	protected:
 
 	/** The generate method actually produces output bursts. */
 	virtual void generate() =0;
@@ -1309,7 +1310,7 @@ class SCHL1Encoder : public GeneratorL1Encoder {
 	Parity mBlockCoder;			///< block parity coder
 	BitVector2 mU;				///< u[], as per GSM 05.03 2.2
 	BitVector2 mE;				///< e[], as per GSM 05.03 2.2
-	BitVector2 mD;				///< d[], as per GSM 05.03 2.2 
+	BitVector2 mD;				///< d[], as per GSM 05.03 2.2
 	BitVector2 mP;				///< p[], as per GSM 05.03 2.2
 	BitVector2 mE1;				///< first half of e[]
 	BitVector2 mE2;				///< second half of e[]
@@ -1545,7 +1546,7 @@ protected:
 	TCHFACCHL1Decoder * mTCHDecoder;
 	TCHFACCHL1Encoder * mTCHEncoder;
 
-	
+
 public:
 
 
@@ -1557,7 +1558,7 @@ public:
 	{
 		mTCHEncoder = new TCHFACCHL1Encoder(wCN, wTN, wMapping.downlink(), this );
 		mEncoder = mTCHEncoder;
-		mTCHDecoder = new TCHFACCHL1Decoder(wCN, wTN, wMapping.uplink(), this );	
+		mTCHDecoder = new TCHFACCHL1Decoder(wCN, wTN, wMapping.uplink(), this );
 		mDecoder = mTCHDecoder;
 	}
 
