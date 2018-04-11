@@ -3,9 +3,15 @@
 #include "A52.h"
 
 /* Masks for the four shift registers */
-#define R1MASK	0x07FFFF /* 19 bits, numbered 0..18 */
-#define R2MASK	0x3FFFFF /* 22 bits, numbered 0..21 */
-#define R3MASK	0x7FFFFF /* 23 bits, numbered 0..22 */
+#ifndef R1MASK
+    #define R1MASK	0x07FFFF /* 19 bits, numbered 0..18 */
+#endif // R1MASK
+#ifndef R2MASK
+    #define R2MASK	0x3FFFFF /* 22 bits, numbered 0..21 */
+#endif // R2MASK
+#ifndef R3MASK
+    #define R3MASK	0x7FFFFF /* 23 bits, numbered 0..22 */
+#endif // R3MASK
 #define R4MASK  0x01FFFF /* 17 bits, numbered 0..16 */
 
 /* clocking bits of R4 */
@@ -23,7 +29,7 @@
  * easier to understand.
  * A better implementation would not use global variables. */
 
-word R1, R2, R3, R4;
+word A52R1, A52R2, A52R3, A52R4;
 
 /* Calculate the parity of a 32-bit word, i.e. the sum of its bits modulo 2
 */
@@ -71,14 +77,14 @@ bit majority(word w1, word w2, word w3) {
  * bit of the frame number, and if we're doing A5/2, we have to set a
  * particular bit in each of the four registers. */
 void clock(int allP, int loaded) {
-    bit maj = majority(R4&R4TAP1, R4&R4TAP2, R4&R4TAP3);
-    if (allP || (((R4&R4TAP1)!=0) == maj))
-            R1 = clockone(R1, R1MASK, R1TAPS, loaded<<15);
-    if (allP || (((R4&R4TAP2)!=0) == maj))
-            R2 = clockone(R2, R2MASK, R2TAPS, loaded<<16);
-    if (allP || (((R4&R4TAP3)!=0) == maj))
-            R3 = clockone(R3, R3MASK, R3TAPS, loaded<<18);
-    R4 = clockone(R4, R4MASK, R4TAPS, loaded<<10);
+    bit maj = majority(A52R4&R4TAP1, A52R4&R4TAP2, A52R4&R4TAP3);
+    if (allP || (((A52R4&R4TAP1)!=0) == maj))
+            A52R1 = clockone(A52R1, R1MASK, R1TAPS, loaded<<15);
+    if (allP || (((A52R4&R4TAP2)!=0) == maj))
+            A52R2 = clockone(A52R2, R2MASK, R2TAPS, loaded<<16);
+    if (allP || (((A52R4&R4TAP3)!=0) == maj))
+            A52R3 = clockone(A52R3, R3MASK, R3TAPS, loaded<<18);
+    A52R4 = clockone(A52R4, R4MASK, R4TAPS, loaded<<10);
 }
 
 
@@ -92,14 +98,14 @@ void clock(int allP, int loaded) {
  * to make it non-linear.  Also, for A5/2, delay the output by one
  * clock cycle for some reason. */
 bit getbit() {
-    bit topbits = (((R1 >> 18) ^ (R2 >> 21) ^ (R3 >> 22)) & 0x01);
+    bit topbits = (((A52R1 >> 18) ^ (A52R2 >> 21) ^ (A52R3 >> 22)) & 0x01);
     static bit delaybit = 0;
     bit nowbit = delaybit;
     delaybit = (
         topbits
-        ^ majority(R1&0x8000, (~R1)&0x4000, R1&0x1000)
-        ^ majority((~R2)&0x10000, R2&0x2000, R2&0x200)
-        ^ majority(R3&0x40000, R3&0x10000, (~R3)&0x2000)
+        ^ majority(A52R1&0x8000, (~A52R1)&0x4000, A52R1&0x1000)
+        ^ majority((~A52R2)&0x10000, A52R2&0x2000, A52R2&0x200)
+        ^ majority(A52R3&0x40000, A52R3&0x10000, (~A52R3)&0x2000)
         );
     return nowbit;
 }
@@ -113,8 +119,8 @@ void keysetup(byte key[8], word frame) {
 
 
     /* Zero out the shift registers. */
-    R1 = R2 = R3 = 0;
-    R4 = 0;
+    A52R1 = A52R2 = A52R3 = 0;
+    A52R4 = 0;
 
 
     /* Load the key into the shift registers,
@@ -125,8 +131,8 @@ void keysetup(byte key[8], word frame) {
     for (i=0; i<64; i++) {
         clock(1,0); /* always clock */
         keybit = (key[i/8] >> (i&7)) & 1; /* The i-th bit of the key */
-        R1 ^= keybit; R2 ^= keybit; R3 ^= keybit;
-        R4 ^= keybit;
+        A52R1 ^= keybit; A52R2 ^= keybit; A52R3 ^= keybit;
+        A52R4 ^= keybit;
     }
 
 
@@ -137,8 +143,8 @@ void keysetup(byte key[8], word frame) {
     for (i=0; i<22; i++) {
         clock(1,i==21); /* always clock */
         framebit = (frame >> i) & 1; /* The i-th bit of the frame # */
-        R1 ^= framebit; R2 ^= framebit; R3 ^= framebit;
-        R4 ^= framebit;
+        A52R1 ^= framebit; A52R2 ^= framebit; A52R3 ^= framebit;
+        A52R4 ^= framebit;
     }
 
 
