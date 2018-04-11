@@ -146,8 +146,8 @@ bool sresEqual(string a, string b)
 	ss1 >> sres1;
 	ss2 >> sres2;
 
-	LOG(DEBUG) << "sres1 = " << sres1;
-	LOG(DEBUG) << "sres2 = " << sres2;
+	LOG(INFO) << "sres1 = " << sres1;
+	LOG(INFO) << "sres2 = " << sres2;
 
 	return (sres1 == sres2);
 }
