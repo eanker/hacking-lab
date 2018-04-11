@@ -381,6 +381,7 @@ struct TSqlQuery : public TSqlString {
 	virtual void addc(const char *name,string sval) = 0;
 	virtual void finish() = 0;
 	void addStore(TmsiTableStore *store);
+	void clearStore(TmsiTableStore *store);
 };
 
 struct TSqlUpdate : public TSqlQuery {
@@ -419,19 +420,39 @@ struct TSqlInsert : public TSqlQuery {
 // Flush anything that has changed out to the TMSI table in this SQL query.
 void TSqlQuery::addStore(TmsiTableStore *store)
 {
-	if (store->imei_changed) { addc("IMEI",store->imei); store->imei_changed = false; }
-	if (store->auth_changed) { addc("AUTH",store->auth); store->auth_changed = false; }
-	if (store->authExpiry_changed) { addc("AUTH_EXPIRY",store->authExpiry); store->authExpiry_changed = false; }
-	if (store->rejectCode_changed) { addc("REJECT_CODE",store->rejectCode); store->rejectCode_changed = false; }
-	if (store->assigned_changed) { addc("TMSI_ASSIGNED",store->assigned); store->assigned_changed = false; }
-	if (store->a5support_changed) { addc("A5_SUPPORT",store->a5support); store->a5support_changed = false; }
-	if (store->powerClass_changed) { addc("POWER_CLASS",store->powerClass); store->powerClass_changed = false; }
-	if (store->kc_changed) { addc("kc",store->kc); store->kc_changed = false; }
-	if (store->associatedUri_changed) { addc("ASSOCIATED_URI",store->associatedUri); store->associatedUri_changed = false; }
-	if (store->assertedIdentity_changed) { addc("ASSERTED_IDENTITY",store->assertedIdentity); store->assertedIdentity_changed = false; }
-	if (store->welcomeSent_changed) { addc("WELCOME_SENT",store->welcomeSent); store->welcomeSent_changed = false; }
+	if (store->imei_changed) { addc("IMEI",store->imei);}
+	if (store->auth_changed) { addc("AUTH",store->auth);}
+	if (store->authExpiry_changed) { addc("AUTH_EXPIRY",store->authExpiry);}
+	if (store->rejectCode_changed) { addc("REJECT_CODE",store->rejectCode);}
+	if (store->assigned_changed) { addc("TMSI_ASSIGNED",store->assigned);}
+	if (store->a5support_changed) { addc("A5_SUPPORT",store->a5support);}
+	if (store->powerClass_changed) { addc("POWER_CLASS",store->powerClass);}
+	if (store->kc_changed) { addc("kc",store->kc);}
+	if (store->associatedUri_changed) { addc("ASSOCIATED_URI",store->associatedUri);}
+	if (store->assertedIdentity_changed) { addc("ASSERTED_IDENTITY",store->assertedIdentity);}
+	if (store->welcomeSent_changed) { addc("WELCOME_SENT",store->welcomeSent);}
 }
 
+// Clear the has_changed flags in a separate function, as the UPDATE query might fail if
+// no INSERT was done before. In such a case, we only want to set the change falgs to
+// false if the UPDATE query has indeed succeeded.
+// This might be a problem if somewhere a flag is set to true while the value that is
+// set is the same as what was in the database before. While it might not cause errors,
+// this way of clearing flags might perform unnescessary writes.
+void TSqlQuery::clearStore(TmsiTableStore *store)
+{
+	if (store->imei_changed) { store->imei_changed = false; }
+	if (store->auth_changed) { store->auth_changed = false; }
+	if (store->authExpiry_changed) { store->authExpiry_changed = false; }
+	if (store->rejectCode_changed) { store->rejectCode_changed = false; }
+	if (store->assigned_changed) { store->assigned_changed = false; }
+	if (store->a5support_changed) { store->a5support_changed = false; }
+	if (store->powerClass_changed) { store->powerClass_changed = false; }
+	if (store->kc_changed) { store->kc_changed = false; }
+	if (store->associatedUri_changed) { store->associatedUri_changed = false; }
+	if (store->assertedIdentity_changed) { store->assertedIdentity_changed = false; }
+	if (store->welcomeSent_changed) { store->welcomeSent_changed = false; }
+}
 
 
 unsigned TMSITable::allocateTmsi()
@@ -489,7 +510,9 @@ void TMSITable::tmsiTabUpdate(string imsi, TmsiTableStore *store)
 	if (! q1.cnt) { return; }	// Nothing changed.
 	q1.addc("ACCESSED",(unsigned)time(NULL));
 	q1.appendf(" WHERE IMSI='%s'",imsi);	// You must include the quotes around IMSI
-	runQuery(q1.c_str(),true);
+	if(runQuery(q1.c_str(),true)){
+        q1.clearStore(store);
+	}
 }
 
 // Update or create a new entry in the TMSI table.
