@@ -1,0 +1,11 @@
+Package: sipauthserve
+Version: 5.0
+Architecture: i386
+Essential: no
+Maintainer: Range Networks, Inc. <info@rangenetworks.com>
+Installed-Size: 2992
+Depends: sqlite3, libosip2-dev, libc6, pkg-config, libzmq3
+Section: comm
+Priority: optional
+Homepage: http://www.rangenetworks.com/
+Description: Range Networks - SIP Authorization Server

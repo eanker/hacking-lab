@@ -1,0 +1,2 @@
+misc:Depends=upstart-job
+shlibs:Depends=libc6 (>= 2.3.6-6~), libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libosip2-4 (>= 3.3.0), libsqlite3-0 (>= 3.5.9), libstdc++6 (>= 4.6), libzmq3 (>= 4.0.5-1chl1~precise1)
