@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/493/trunk/mbts/CommonLibs
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/COPYING
+END
+LinkedLists.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/493/trunk/mbts/CommonLibs/LinkedLists.h
+END
+Threads.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/362/trunk/mbts/CommonLibs/Threads.cpp
+END
+A51.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/A51.h
+END
+ScalarTypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/ScalarTypes.h
+END
+TimevalTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/TimevalTest.cpp
+END
+F16.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/F16.h
+END
+BitVectorTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/BitVectorTest.cpp
+END
+BitVector.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/BitVector.cpp
+END
+Timeval.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/Timeval.cpp
+END
+Utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/Utils.h
+END
+ConfigurationTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/ConfigurationTest.cpp
+END
+Configuration.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/367/trunk/mbts/CommonLibs/Configuration.cpp
+END
+Vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/Vector.h
+END
+InterthreadTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/InterthreadTest.cpp
+END
+Reporting.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/127/trunk/mbts/CommonLibs/Reporting.cpp
+END
+ReportingTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/ReportingTest.cpp
+END
+Logger.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/463/trunk/mbts/CommonLibs/Logger.cpp
+END
+Sockets.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/Sockets.h
+END
+LogTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/LogTest.cpp
+END
+LinkedLists.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/LinkedLists.cpp
+END
+A51.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/A51.cpp
+END
+A51Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/A51Test.cpp
+END
+sqlite3util.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/sqlite3util.h
+END
+F16Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/F16Test.cpp
+END
+Threads.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/309/trunk/mbts/CommonLibs/Threads.h
+END
+Utils.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/367/trunk/mbts/CommonLibs/Utils.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/67/trunk/mbts/CommonLibs/Makefile.in
+END
+VectorTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/VectorTest.cpp
+END
+README.common
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/README.common
+END
+BitVector.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/BitVector.h
+END
+Timeval.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/Timeval.h
+END
+MemoryLeak.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/MemoryLeak.h
+END
+SocketsTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/SocketsTest.cpp
+END
+Sockets.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/454/trunk/mbts/CommonLibs/Sockets.cpp
+END
+Configuration.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/339/trunk/mbts/CommonLibs/Configuration.h
+END
+Reporting.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/Reporting.h
+END
+Interthread.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/Interthread.h
+END
+example.config
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/example.config
+END
+sqlite3util.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/CommonLibs/sqlite3util.cpp
+END
+Logger.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/463/trunk/mbts/CommonLibs/Logger.h
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/yatebts/!svn/ver/111/trunk/mbts/sqlite3
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/111/trunk/mbts/sqlite3/Makefile.in
+END
+sqlite3.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/sqlite3/sqlite3.c
+END
+sqlite3.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/sqlite3/sqlite3.h
+END
+sqlite3ext.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/65/trunk/mbts/sqlite3/sqlite3ext.h
+END
