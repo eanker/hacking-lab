@@ -1,0 +1,14 @@
+97915175d5f116c4cf0c50a91c092164  OpenBTS/.gdbinit
+0b71797d28e88b59374e47de4c55fc8a  OpenBTS/OpenBTS
+92ebf8224b58bc858fd1afb6206c0984  OpenBTS/OpenBTSCLI
+77ac4845840383fed3c780bee1a1fd40  OpenBTS/OpenBTSDo
+0224b79e6fa9a742e7df0de14b7949e8  OpenBTS/transceiver
+105d9d269b805e99f4f3658d7434bf5f  etc/OpenBTS/OpenBTS.example.sql
+3d71f9f588eb0a1a31530d57fe68aeca  etc/OpenBTS/iptables.rules
+40e1155b6b032a2e8992ebfbfbcaa46c  etc/init/openbts.conf
+dc8d37e29c9c165877dc360cb20e73cf  etc/logrotate.d/OpenBTS
+c909e0a4a7e76bb2e6d5f77448d41617  etc/rsyslog.d/OpenBTS.conf
+a3c75687c8fd5401f5c72d0092e62f8b  home/openbts/CLI
+7efbe3b0c3234a5bde107df8b3d2e0a0  home/openbts/openbtsconfig
+89664aad3497e69afa070a8236df0490  usr/share/doc/openbts/changelog.Debian.gz
+4a4dd3598707603b3f76a2378a4504aa  usr/share/doc/openbts/changelog.gz

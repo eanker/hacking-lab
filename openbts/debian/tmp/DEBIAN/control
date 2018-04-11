@@ -1,0 +1,11 @@
+Package: openbts
+Version: 5.0
+Architecture: i386
+Essential: no
+Maintainer: Range Networks, Inc. <info@rangenetworks.com>
+Installed-Size: 26379
+Depends: sqlite3, libusb-1.0-0, libortp-dev, libc6, pkg-config, libzmq3, liba53, libreadline6, libssl1.0.0
+Section: comm
+Priority: optional
+Homepage: http://www.rangenetworks.com/
+Description: Range Networks - OpenBTS GSM+GPRS Radio Access Network Node

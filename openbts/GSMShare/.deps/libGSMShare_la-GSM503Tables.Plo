@@ -1,0 +1,3 @@
+libGSMShare_la-GSM503Tables.lo: GSM503Tables.cpp GSM503Tables.h
+
+GSM503Tables.h:

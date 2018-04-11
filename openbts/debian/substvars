@@ -1,0 +1,2 @@
+shlibs:Depends=liba53, libc6 (>= 2.3.6-6~), libc6 (>= 2.15), libcoredumper1, libgcc1 (>= 1:4.1.1), libortp8 (>= 3.3.2), libreadline6 (>= 6.0), libsqlite3-0 (>= 3.5.9), libstdc++6 (>= 4.6), libzmq3 (>= 4.0.5-1chl1~precise1)
+misc:Depends=
