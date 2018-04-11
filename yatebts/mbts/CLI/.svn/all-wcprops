@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/yatebts/!svn/ver/429/trunk/mbts/CLI
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/67/trunk/mbts/CLI/Makefile.in
+END
+README.CLI
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/65/trunk/mbts/CLI/README.CLI
+END
+CLI.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/429/trunk/mbts/CLI/CLI.cpp
+END
+CLI.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/yatebts/!svn/ver/65/trunk/mbts/CLI/CLI.h
+END

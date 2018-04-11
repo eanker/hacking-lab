@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/yatebts/!svn/ver/492/trunk/mbts/Control
+END
+DCCHDispatch.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/492/trunk/mbts/Control/DCCHDispatch.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/127/trunk/mbts/Control/Makefile.in
+END
+RadioResource.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/326/trunk/mbts/Control/RadioResource.cpp
+END
+SMSCB.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/Control/SMSCB.cpp
+END
+ControlCommon.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/127/trunk/mbts/Control/ControlCommon.cpp
+END
+README.Control
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/Control/README.Control
+END
+RadioResource.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/324/trunk/mbts/Control/RadioResource.h
+END
+ControlCommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/127/trunk/mbts/Control/ControlCommon.h
+END

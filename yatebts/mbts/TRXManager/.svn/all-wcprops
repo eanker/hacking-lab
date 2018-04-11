@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/442/trunk/mbts/TRXManager
+END
+TRXManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/442/trunk/mbts/TRXManager/TRXManager.cpp
+END
+clockdump.sh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/65/trunk/mbts/TRXManager/clockdump.sh
+END
+TRXManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/442/trunk/mbts/TRXManager/TRXManager.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/67/trunk/mbts/TRXManager/Makefile.in
+END
+README.TRXManager
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/TRXManager/README.TRXManager
+END

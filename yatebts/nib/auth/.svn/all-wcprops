@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/yatebts/!svn/ver/403/trunk/nib/auth
+END
+test_crypto.sh
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/test_crypto.sh
+END
+do_comp128.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/do_comp128.c
+END
+gsm_auth.sh
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/403/trunk/nib/auth/gsm_auth.sh
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/Makefile.in
+END

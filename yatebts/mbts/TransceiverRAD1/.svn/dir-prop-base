@@ -1,0 +1,14 @@
+K 10
+svn:ignore
+V 120
+Makefile
+transceiver-rad1
+transceiver-bladerf
+RAD1Cmd
+RAD1RxRawPower
+RAD1RxRawPowerSweep
+RAD1SN
+RAD1ping
+sigProcLibTest
+
+END

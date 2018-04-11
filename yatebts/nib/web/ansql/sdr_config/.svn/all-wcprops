@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/ansql/!svn/ver/382/trunk/sdr_config
+END
+ybts_fields.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ansql/!svn/ver/382/trunk/sdr_config/ybts_fields.php
+END
+bts_tabbed_settings.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ansql/!svn/ver/330/trunk/sdr_config/bts_tabbed_settings.php
+END
+check_validity_fields_ybts.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ansql/!svn/ver/318/trunk/sdr_config/check_validity_fields_ybts.php
+END
+enb_fields.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ansql/!svn/ver/364/trunk/sdr_config/enb_fields.php
+END
+check_validity_fields_enb.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ansql/!svn/ver/335/trunk/sdr_config/check_validity_fields_enb.php
+END
+create_radio_band_select_array.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ansql/!svn/ver/330/trunk/sdr_config/create_radio_band_select_array.php
+END
+enb_tabbed_settings.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ansql/!svn/ver/364/trunk/sdr_config/enb_tabbed_settings.php
+END

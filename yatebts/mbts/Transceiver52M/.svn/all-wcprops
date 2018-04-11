@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/367/trunk/mbts/Transceiver52M
+END
+DummyLoad.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/DummyLoad.cpp
+END
+convolve.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/convolve.c
+END
+rcvLPF_651.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/rcvLPF_651.h
+END
+std_inband.rbf
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/66/trunk/mbts/Transceiver52M/std_inband.rbf
+END
+sendLPF_961.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/sendLPF_961.h
+END
+Resampler.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/Resampler.h
+END
+convolve.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/convolve.h
+END
+sigProcLib.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/sigProcLib.h
+END
+USRPping.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/USRPping.cpp
+END
+USRPDevice.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/USRPDevice.cpp
+END
+Complex.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/Complex.h
+END
+pulseApproximate.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/pulseApproximate.m
+END
+radioClock.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioClock.h
+END
+convert.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/convert.c
+END
+radioVector.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioVector.cpp
+END
+laurent.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/laurent.m
+END
+radioInterface.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioInterface.h
+END
+README.Talgorithm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/README.Talgorithm
+END
+convert.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/convert.h
+END
+radioInterfaceResamp.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioInterfaceResamp.cpp
+END
+Resampler.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/Resampler.cpp
+END
+Transceiver.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/Transceiver.h
+END
+sigProcLibTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/sigProcLibTest.cpp
+END
+sigProcLib.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/sigProcLib.cpp
+END
+DummyLoad.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/DummyLoad.h
+END
+UHDDevice.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/UHDDevice.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/246/trunk/mbts/Transceiver52M/Makefile.in
+END
+inband-signaling-usb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/inband-signaling-usb
+END
+radioClock.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioClock.cpp
+END
+runTransceiver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yatebts/!svn/ver/125/trunk/mbts/Transceiver52M/runTransceiver.cpp
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/README
+END
+USRPDevice.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/USRPDevice.h
+END
+README.DFEsymbolspaced
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/README.DFEsymbolspaced
+END
+radioInterface.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioInterface.cpp
+END
+radioDevice.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioDevice.h
+END
+Transceiver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yatebts/!svn/ver/367/trunk/mbts/Transceiver52M/Transceiver.cpp
+END
+radioVector.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/Transceiver52M/radioVector.h
+END

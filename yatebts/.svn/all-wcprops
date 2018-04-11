@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/yatebts/!svn/ver/503/trunk
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/yatebts/!svn/ver/470/trunk/Makefile.in
+END
+ybts.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/yatebts/!svn/ver/502/trunk/ybts.cpp
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/yatebts/!svn/ver/489/trunk/configure.ac
+END
+ybts.conf.sample
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/483/trunk/ybts.conf.sample
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/yatebts/!svn/ver/141/trunk/INSTALL
+END
+yate-bts.spec.in
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/443/trunk/yate-bts.spec.in
+END
+ybts.h
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/yatebts/!svn/ver/393/trunk/ybts.h
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/yatebts/!svn/ver/139/trunk/COPYING
+END
+autogen.sh
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/yatebts/!svn/ver/170/trunk/autogen.sh
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/yatebts/!svn/ver/177/trunk/README
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/yatebts/!svn/ver/309/trunk/config.h.in
+END

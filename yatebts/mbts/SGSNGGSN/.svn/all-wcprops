@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/yatebts/!svn/ver/500/trunk/mbts/SGSNGGSN
+END
+iputils.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/459/trunk/mbts/SGSNGGSN/iputils.cpp
+END
+SgsnConn.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/393/trunk/mbts/SGSNGGSN/SgsnConn.h
+END
+Ggsn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/459/trunk/mbts/SGSNGGSN/Ggsn.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/393/trunk/mbts/SGSNGGSN/Makefile.in
+END
+GPRSL3Messages.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/459/trunk/mbts/SGSNGGSN/GPRSL3Messages.cpp
+END
+SgsnCli.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/65/trunk/mbts/SGSNGGSN/SgsnCli.cpp
+END
+Ggsn.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/464/trunk/mbts/SGSNGGSN/Ggsn.h
+END
+GPRSL3Messages.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/459/trunk/mbts/SGSNGGSN/GPRSL3Messages.h
+END
+LLC.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/493/trunk/mbts/SGSNGGSN/LLC.cpp
+END
+Sgsn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/500/trunk/mbts/SGSNGGSN/Sgsn.cpp
+END
+SgsnBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/459/trunk/mbts/SGSNGGSN/SgsnBase.h
+END
+miniggsn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/459/trunk/mbts/SGSNGGSN/miniggsn.cpp
+END
+LLC.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/493/trunk/mbts/SGSNGGSN/LLC.h
+END
+Sgsn.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/493/trunk/mbts/SGSNGGSN/Sgsn.h
+END
+miniggsn.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/459/trunk/mbts/SGSNGGSN/miniggsn.h
+END
+SgsnExport.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/493/trunk/mbts/SGSNGGSN/SgsnExport.h
+END

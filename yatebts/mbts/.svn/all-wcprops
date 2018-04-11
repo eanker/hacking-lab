@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/yatebts/!svn/ver/500/trunk/mbts
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/yatebts/!svn/ver/65/trunk/mbts/README
+END
+doxconfig
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/yatebts/!svn/ver/65/trunk/mbts/doxconfig
+END
+Makefile.head.in
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/363/trunk/mbts/Makefile.head.in
+END
+LEGAL
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/yatebts/!svn/ver/65/trunk/mbts/LEGAL
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/yatebts/!svn/ver/65/trunk/mbts/AUTHORS
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/yatebts/!svn/ver/65/trunk/mbts/COPYING
+END
+Makefile.tail.in
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/289/trunk/mbts/Makefile.tail.in
+END
+ctags.sh
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/yatebts/!svn/ver/65/trunk/mbts/ctags.sh
+END

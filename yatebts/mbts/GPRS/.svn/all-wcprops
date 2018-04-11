@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/yatebts/!svn/ver/500/trunk/mbts/GPRS
+END
+RLCEngine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/483/trunk/mbts/GPRS/RLCEngine.cpp
+END
+GPRSInternal.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/459/trunk/mbts/GPRS/GPRSInternal.h
+END
+RLCMessages.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/473/trunk/mbts/GPRS/RLCMessages.h
+END
+TBF.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/459/trunk/mbts/GPRS/TBF.h
+END
+pat.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/pat.txt
+END
+RLCHdr.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/RLCHdr.h
+END
+notes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/notes.txt
+END
+BSSGMessages.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/459/trunk/mbts/GPRS/BSSGMessages.cpp
+END
+MsgBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/MsgBase.h
+END
+ByteVector.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/500/trunk/mbts/GPRS/ByteVector.cpp
+END
+CS4.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/CS4.txt
+END
+GPRSTDMA.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/GPRSTDMA.h
+END
+makefile.tests
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/makefile.tests
+END
+pinghttp.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/pinghttp.c
+END
+BSSG.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/459/trunk/mbts/GPRS/BSSG.cpp
+END
+MSInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/493/trunk/mbts/GPRS/MSInfo.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/67/trunk/mbts/GPRS/Makefile.in
+END
+FEC.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/FEC.h
+END
+todo.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/todo.txt
+END
+MAC.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/MAC.h
+END
+RLCMessages.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/484/trunk/mbts/GPRS/RLCMessages.cpp
+END
+TBF.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/491/trunk/mbts/GPRS/TBF.cpp
+END
+RLCEngine.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/RLCEngine.h
+END
+makefile.pat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/makefile.pat
+END
+RLC.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/RLC.cpp
+END
+MsgBase.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/MsgBase.cpp
+END
+GPRSRLC.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/GPRSRLC.h
+END
+GPRSExport.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/473/trunk/mbts/GPRS/GPRSExport.h
+END
+MSInfo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/492/trunk/mbts/GPRS/MSInfo.cpp
+END
+BSSGMessages.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/BSSGMessages.h
+END
+ByteVector.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/500/trunk/mbts/GPRS/ByteVector.h
+END
+FEC.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/480/trunk/mbts/GPRS/FEC.cpp
+END
+ScalarTypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/ScalarTypes.h
+END
+MAC.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/492/trunk/mbts/GPRS/MAC.cpp
+END
+RList.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/RList.h
+END
+GPRSCLI.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/463/trunk/mbts/GPRS/GPRSCLI.cpp
+END
+BSSG.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/65/trunk/mbts/GPRS/BSSG.h
+END

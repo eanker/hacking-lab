@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/496/trunk/nib/web/modules/default
+END
+bts_configuration.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/yatebts/!svn/ver/306/trunk/nib/web/modules/default/bts_configuration.php
+END
+subscribers.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/yatebts/!svn/ver/496/trunk/nib/web/modules/default/subscribers.php
+END
+outgoing.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yatebts/!svn/ver/307/trunk/nib/web/modules/default/outgoing.php
+END

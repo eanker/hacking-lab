@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/milenage
+END
+rijndael.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/milenage/rijndael.h
+END
+milenage.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/milenage/milenage.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/milenage/main.c
+END
+milenage.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/milenage/milenage.h
+END
+rijndael.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/168/trunk/nib/auth/milenage/rijndael.c
+END

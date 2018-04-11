@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/458/trunk/mbts/TransceiverRAD1
+END
+fpga.rbf
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/fpga.rbf
+END
+fusb.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/127/trunk/mbts/TransceiverRAD1/fusb.h
+END
+RAD1ping.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/248/trunk/mbts/TransceiverRAD1/RAD1ping.cpp
+END
+RAD1Device.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yatebts/!svn/ver/248/trunk/mbts/TransceiverRAD1/RAD1Device.cpp
+END
+burn-rnrad1-eeprom.sh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/burn-rnrad1-eeprom.sh
+END
+inband-signaling-usb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/inband-signaling-usb
+END
+runTransceiver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/yatebts/!svn/ver/248/trunk/mbts/TransceiverRAD1/runTransceiver.cpp
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/README
+END
+README.DFEsymbolspaced
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/README.DFEsymbolspaced
+END
+radioInterface.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/yatebts/!svn/ver/309/trunk/mbts/TransceiverRAD1/radioInterface.cpp
+END
+i2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/i2c.h
+END
+ad9862.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/ad9862.h
+END
+radioDevice.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yatebts/!svn/ver/248/trunk/mbts/TransceiverRAD1/radioDevice.h
+END
+bladeRFDevice.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yatebts/!svn/ver/288/trunk/mbts/TransceiverRAD1/bladeRFDevice.h
+END
+ids.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/ids.h
+END
+Transceiver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yatebts/!svn/ver/367/trunk/mbts/TransceiverRAD1/Transceiver.cpp
+END
+RAD1SN.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/RAD1SN.cpp
+END
+DummyLoad.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/DummyLoad.cpp
+END
+fusb.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/127/trunk/mbts/TransceiverRAD1/fusb.cpp
+END
+spi.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/spi.h
+END
+rnrad1Rx.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/rnrad1Rx.cpp
+END
+sigProcLib.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/sigProcLib.h
+END
+rnrad1Tx.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/rnrad1Tx.cpp
+END
+rnrad1Core.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/rnrad1Core.h
+END
+firmware.img
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/248/trunk/mbts/TransceiverRAD1/firmware.img
+END
+commands.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/commands.h
+END
+hostedx40.rbf
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yatebts/!svn/ver/297/trunk/mbts/TransceiverRAD1/hostedx40.rbf
+END
+RAD1Cmd.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/RAD1Cmd.cpp
+END
+RAD1Device.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/367/trunk/mbts/TransceiverRAD1/RAD1Device.h
+END
+pulseApproximate.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/pulseApproximate.m
+END
+Complex.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/Complex.h
+END
+bladeRFDevice.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yatebts/!svn/ver/458/trunk/mbts/TransceiverRAD1/bladeRFDevice.cpp
+END
+radioInterface.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yatebts/!svn/ver/248/trunk/mbts/TransceiverRAD1/radioInterface.h
+END
+README.Talgorithm
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/README.Talgorithm
+END
+interfaces.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/interfaces.h
+END
+RAD1RxRawPower.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/RAD1RxRawPower.cpp
+END
+bytesex.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/bytesex.h
+END
+Transceiver.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/Transceiver.h
+END
+rnrad1.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/367/trunk/mbts/TransceiverRAD1/rnrad1.h
+END
+hostedx115.rbf
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yatebts/!svn/ver/297/trunk/mbts/TransceiverRAD1/hostedx115.rbf
+END
+RAD1RxRawPowerSweep.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/RAD1RxRawPowerSweep.cpp
+END
+sigProcLibTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/sigProcLibTest.cpp
+END
+sigProcLib.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yatebts/!svn/ver/199/trunk/mbts/TransceiverRAD1/sigProcLib.cpp
+END
+ezusb.ihx
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/ezusb.ihx
+END
+rnrad1Core.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yatebts/!svn/ver/367/trunk/mbts/TransceiverRAD1/rnrad1Core.cpp
+END
+DummyLoad.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/DummyLoad.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/248/trunk/mbts/TransceiverRAD1/Makefile.in
+END
+fpga_regs.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/65/trunk/mbts/TransceiverRAD1/fpga_regs.h
+END

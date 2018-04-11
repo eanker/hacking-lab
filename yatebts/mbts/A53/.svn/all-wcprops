@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/yatebts/!svn/ver/67/trunk/mbts/A53
+END
+a5.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/a5.h
+END
+gprs_cipher.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/gprs_cipher.h
+END
+a5_speed.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/a5_speed.c
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/COPYING
+END
+a53test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/a53test.cpp
+END
+kasumi_test.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/kasumi_test.c
+END
+kasumi.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/kasumi.c
+END
+gea_test.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/gea_test.c
+END
+gea.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/gea.c
+END
+a53.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/a53.h
+END
+kasumi.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/kasumi.h
+END
+utils.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/utils.c
+END
+linuxlist.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/linuxlist.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/67/trunk/mbts/A53/Makefile.in
+END
+bits.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/bits.c
+END
+gea.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/gea.h
+END
+ifc.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/ifc.cpp
+END
+a5_test.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/a5_test.c
+END
+utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/utils.h
+END
+a5.c
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/a5.c
+END
+bits.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/yatebts/!svn/ver/65/trunk/mbts/A53/bits.h
+END

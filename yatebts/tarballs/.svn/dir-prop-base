@@ -1,0 +1,14 @@
+K 10
+svn:ignore
+V 60
+core*
+*.tar.gz
+*.tar.bz2
+*.tgz
+*.rpm
+*.deb
+*.orig
+*~
+.*.swp
+
+END

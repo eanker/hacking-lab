@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/ansql/!svn/ver/383/trunk
+END
+lib_json_requests.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ansql/!svn/ver/98/trunk/lib_json_requests.php
+END
+javascript.js
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ansql/!svn/ver/380/trunk/javascript.js
+END
+framework.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ansql/!svn/ver/379/trunk/framework.php
+END
+force_update.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/ansql/!svn/ver/80/trunk/force_update.php
+END
+tabbed_settings.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ansql/!svn/ver/382/trunk/tabbed_settings.php
+END
+set_debug.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ansql/!svn/ver/80/trunk/set_debug.php
+END
+socketconn.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ansql/!svn/ver/152/trunk/socketconn.php
+END
+lib.php
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/ansql/!svn/ver/380/trunk/lib.php
+END
+lib_plugins.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/ansql/!svn/ver/383/trunk/lib_plugins.php
+END
+check_validity_fields.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ansql/!svn/ver/303/trunk/check_validity_fields.php
+END
+debug_all.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ansql/!svn/ver/163/trunk/debug_all.php
+END
+use_json_requests.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ansql/!svn/ver/357/trunk/use_json_requests.php
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/ansql/!svn/ver/80/trunk/COPYING
+END
+config.php.sample
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ansql/!svn/ver/138/trunk/config.php.sample
+END
+debug.php
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/ansql/!svn/ver/378/trunk/debug.php
+END
+base_classes.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ansql/!svn/ver/140/trunk/base_classes.php
+END
+lib_files.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ansql/!svn/ver/310/trunk/lib_files.php
+END

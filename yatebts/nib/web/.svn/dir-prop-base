@@ -1,0 +1,6 @@
+K 13
+svn:externals
+V 42
+ansql http://voip.null.ro/svn/ansql/trunk
+
+END

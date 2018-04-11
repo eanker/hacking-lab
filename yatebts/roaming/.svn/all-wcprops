@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/yatebts/!svn/ver/499/trunk/roaming
+END
+lib_str_util.js
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/350/trunk/roaming/lib_str_util.js
+END
+roaming.js
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/499/trunk/roaming/roaming.js
+END
+handover.js
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/399/trunk/roaming/handover.js
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/396/trunk/roaming/Makefile.in
+END

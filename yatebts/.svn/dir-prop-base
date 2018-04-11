@@ -1,0 +1,26 @@
+K 10
+svn:ignore
+V 169
+*.cache
+Makefile
+YateLocal*
+configure
+config.h
+config.status
+config.log
+*-stamp
+yate-bts.spec
+revision.txt
+core*
+*.o
+*.a
+*.so
+*.so.*
+*.yate
+*.orig
+*~
+.*.swp
+*.log
+*.out
+
+END

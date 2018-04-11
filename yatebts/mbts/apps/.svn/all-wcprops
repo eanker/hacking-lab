@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/yatebts/!svn/ver/483/trunk/mbts/apps
+END
+OpenBTS.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/442/trunk/mbts/apps/OpenBTS.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/111/trunk/mbts/apps/Makefile.in
+END
+GetConfigurationKeys.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yatebts/!svn/ver/483/trunk/mbts/apps/GetConfigurationKeys.cpp
+END

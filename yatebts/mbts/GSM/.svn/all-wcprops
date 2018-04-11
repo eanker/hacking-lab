@@ -1,0 +1,239 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/yatebts/!svn/ver/500/trunk/mbts/GSM
+END
+GSML3Message.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSML3Message.h
+END
+gsmtap.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/392/trunk/mbts/GSM/gsmtap.h
+END
+GSMTDMA.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMTDMA.h
+END
+GSML2LAPDm.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/309/trunk/mbts/GSM/GSML2LAPDm.cpp
+END
+GSMCommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMCommon.h
+END
+GSMSMSCBL3Messages.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMSMSCBL3Messages.cpp
+END
+GSML1FEC.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSML1FEC.h
+END
+GSM610Tables.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSM610Tables.cpp
+END
+AppInfTest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/AppInfTest.cpp
+END
+GSML3GPRSElements.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/374/trunk/mbts/GSM/GSML3GPRSElements.cpp
+END
+GSMLogicalChannel.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/324/trunk/mbts/GSM/GSMLogicalChannel.h
+END
+GSMTAPDump.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/475/trunk/mbts/GSM/GSMTAPDump.cpp
+END
+GSMConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/125/trunk/mbts/GSM/GSMConfig.h
+END
+PhysicalStatus.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/PhysicalStatus.h
+END
+GSML3RRMessages.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/500/trunk/mbts/GSM/GSML3RRMessages.h
+END
+GSML3RRElements.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSML3RRElements.cpp
+END
+GSMSAPMux.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMSAPMux.h
+END
+GSML3Message.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/127/trunk/mbts/GSM/GSML3Message.cpp
+END
+PowerManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/PowerManager.h
+END
+GSMTDMA.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMTDMA.cpp
+END
+GSMCommon.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMCommon.cpp
+END
+GSML3CommonElements.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/127/trunk/mbts/GSM/GSML3CommonElements.h
+END
+GSMTransfer.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/127/trunk/mbts/GSM/GSMTransfer.h
+END
+GSML1FEC.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/324/trunk/mbts/GSM/GSML1FEC.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/yatebts/!svn/ver/67/trunk/mbts/GSM/Makefile.in
+END
+GSML2LAPDm.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSML2LAPDm.h
+END
+GSMSMSCBL3Messages.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMSMSCBL3Messages.h
+END
+GSMLogicalChannel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/yatebts/!svn/ver/393/trunk/mbts/GSM/GSMLogicalChannel.cpp
+END
+GSMConfig.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/309/trunk/mbts/GSM/GSMConfig.cpp
+END
+GSM610Tables.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSM610Tables.h
+END
+PhysicalStatus.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/127/trunk/mbts/GSM/PhysicalStatus.cpp
+END
+GSML3RRMessages.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/500/trunk/mbts/GSM/GSML3RRMessages.cpp
+END
+GSML3GPRSElements.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSML3GPRSElements.h
+END
+GSMSAPMux.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMSAPMux.cpp
+END
+GSMTAPDump.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/yatebts/!svn/ver/475/trunk/mbts/GSM/GSMTAPDump.h
+END
+PowerManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/309/trunk/mbts/GSM/PowerManager.cpp
+END
+GSML3CommonElements.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/yatebts/!svn/ver/127/trunk/mbts/GSM/GSML3CommonElements.cpp
+END
+GSML3RRElements.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/127/trunk/mbts/GSM/GSML3RRElements.h
+END
+GSMTransfer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/yatebts/!svn/ver/65/trunk/mbts/GSM/GSMTransfer.cpp
+END

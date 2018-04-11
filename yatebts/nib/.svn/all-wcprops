@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/yatebts/!svn/ver/503/trunk/nib
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/443/trunk/nib/Makefile.in
+END
+echo.au
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/yatebts/!svn/ver/160/trunk/nib/echo.au
+END
+nib.js
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/yatebts/!svn/ver/503/trunk/nib/nib.js
+END
+welcome.js
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/yatebts/!svn/ver/162/trunk/nib/welcome.js
+END
+custom_sms.js
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/yatebts/!svn/ver/440/trunk/nib/custom_sms.js
+END
+subscribers.conf.sample
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/261/trunk/nib/subscribers.conf.sample
+END
+welcome.au
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/yatebts/!svn/ver/144/trunk/nib/welcome.au
+END

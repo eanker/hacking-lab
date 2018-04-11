@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/yatebts/!svn/ver/500/trunk/mbts/Connection
+END
+SigConnection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/500/trunk/mbts/Connection/SigConnection.cpp
+END
+ConnectionMap.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/324/trunk/mbts/Connection/ConnectionMap.h
+END
+MediaConnection.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/393/trunk/mbts/Connection/MediaConnection.h
+END
+LogConnection.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/123/trunk/mbts/Connection/LogConnection.h
+END
+SigConnection.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/324/trunk/mbts/Connection/SigConnection.h
+END
+CmdConnection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/123/trunk/mbts/Connection/CmdConnection.cpp
+END
+GprsConnMap.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/393/trunk/mbts/Connection/GprsConnMap.cpp
+END
+CmdConnection.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/123/trunk/mbts/Connection/CmdConnection.h
+END
+GenConnection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/421/trunk/mbts/Connection/GenConnection.cpp
+END
+GprsConnMap.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/yatebts/!svn/ver/393/trunk/mbts/Connection/GprsConnMap.h
+END
+ConnectionMap.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/324/trunk/mbts/Connection/ConnectionMap.cpp
+END
+GenConnection.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/yatebts/!svn/ver/309/trunk/mbts/Connection/GenConnection.h
+END
+MediaConnection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yatebts/!svn/ver/481/trunk/mbts/Connection/MediaConnection.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/yatebts/!svn/ver/393/trunk/mbts/Connection/Makefile.in
+END
+LogConnection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/yatebts/!svn/ver/123/trunk/mbts/Connection/LogConnection.cpp
+END

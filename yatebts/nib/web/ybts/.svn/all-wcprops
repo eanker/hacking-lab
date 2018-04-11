@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/yatebts/!svn/ver/384/trunk/nib/web/ybts
+END
+ybts_menu.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yatebts/!svn/ver/232/trunk/nib/web/ybts/ybts_menu.php
+END
+lib_ybts.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/yatebts/!svn/ver/383/trunk/nib/web/ybts/lib_ybts.php
+END
+ybts_fields.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/yatebts/!svn/ver/384/trunk/nib/web/ybts/ybts_fields.php
+END
+check_validity_fields_ybts.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/yatebts/!svn/ver/383/trunk/nib/web/ybts/check_validity_fields_ybts.php
+END
+create_radio_band_select_array.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/yatebts/!svn/ver/383/trunk/nib/web/ybts/create_radio_band_select_array.php
+END
