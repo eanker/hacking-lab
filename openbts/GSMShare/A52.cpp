@@ -97,7 +97,7 @@ void clock(int allP, int loaded) {
  * of three particular bits of the register (one of them complemented)
  * to make it non-linear.  Also, for A5/2, delay the output by one
  * clock cycle for some reason. */
-bit getbit() {
+bit A52getbit() {
     bit topbits = (((A52R1 >> 18) ^ (A52R2 >> 21) ^ (A52R3 >> 22)) & 0x01);
     static bit delaybit = 0;
     bit nowbit = delaybit;
@@ -113,7 +113,7 @@ bit getbit() {
 
 /* Do the A5 key setup.  This routine accepts a 64-bit key and
  * a 22-bit frame number. */
-void keysetup(byte key[8], word frame) {
+void A52keysetup(byte key[8], word frame) {
     int i;
     bit keybit, framebit;
 
@@ -159,7 +159,7 @@ void keysetup(byte key[8], word frame) {
     }
     /* For A5/2, we have to load the delayed output bit.  This does _not_
      * change the state of the registers.  For A5/1, this is a no-op. */
-    getbit();
+    A52getbit();
 
 
     /* Now the key is properly set up. */
@@ -172,7 +172,7 @@ void keysetup(byte key[8], word frame) {
  * B->A frame.  You allocate a 15-byte buffer
  * for each direction, and this function fills
  * it in. */
-void run(byte AtoBkeystream[], byte BtoAkeystream[]) {
+void A52run(byte AtoBkeystream[], byte BtoAkeystream[]) {
     int i;
 
 
@@ -185,7 +185,7 @@ void run(byte AtoBkeystream[], byte BtoAkeystream[]) {
      * A->B direction.  Store it, MSB first. */
     for (i=0; i<114; i++) {
         clock(0,0);
-        AtoBkeystream[i/8] |= getbit() << (7-(i&7));
+        AtoBkeystream[i/8] |= A52getbit() << (7-(i&7));
     }
 
 
@@ -193,13 +193,13 @@ void run(byte AtoBkeystream[], byte BtoAkeystream[]) {
      * B->A direction.  Store it, MSB first. */
     for (i=0; i<114; i++) {
         clock(0,0);
-        BtoAkeystream[i/8] |= getbit() << (7-(i&7));
+        BtoAkeystream[i/8] |= A52getbit() << (7-(i&7));
     }
 }
 
 void A52_GSM( byte *key, int klen, int count, byte *block1, byte *block2 )
 {
 	assert(klen == 64);
-	keysetup(key, count); // TODO - frame and count are not the same
-	run(block1, block2);
+	A52keysetup(key, count); // TODO - frame and count are not the same
+	A52run(block1, block2);
 }
