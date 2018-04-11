@@ -31,7 +31,8 @@ libGSMShare_la_SOURCES = \
 	AmrCoder.cpp \
 	GSM503Tables.cpp \
 	ViterbiR204.cpp \
-	A51.cpp
+	A51.cpp \
+	A52.cpp
 
 noinst_PROGRAMS = \
 	ViterbiTest \
@@ -47,7 +48,8 @@ noinst_HEADERS = \
 	AmrCoder.h \
 	ViterbiR204.h \
 	GSM503Tables.h \
-	A51.h
+	A51.h \
+	A52.h
 
 ViterbiTest_SOURCES = ViterbiTest.cpp
 ViterbiTest_LDADD = \
