@@ -730,10 +730,11 @@ SharedL1Decoder::SharedL1Decoder()
 
 void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 {
-	OBJLOG(DEBUG) <<"XCCHL1Decoder " << inBurst;
+	OBJLOG(WARNING) << "HACKINGLAB: IN XCCHL1Decoder::writeLowSideRx";
+	OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder " << inBurst;
 	// If the channel is closed, ignore the burst.
 	if (!decActive()) {
-		OBJLOG(DEBUG) <<"XCCHL1Decoder not active, ignoring input";
+		OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder not active, ignoring input";
 		return;
 	}
 	mDecoderStats.countSNR(inBurst);
@@ -743,31 +744,46 @@ void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 
 	// Accept the burst into the deinterleaving buffer.
 	// Return true if we are ready to interleave.
+	OBJLOG(WARNING) << "HACKINGLAB: Processing burst";
 	if (!processBurst(inBurst)) return;
+	OBJLOG(WARNING) << "HACKINGLAB: Did not return from processing burst";
 	if (mEncrypted == ENCRYPT_YES) {
+		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_YES, going to decrypt";
 		decrypt();
+		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_YES, done decrypting";
 	}
 	if (mEncrypted == ENCRYPT_MAYBE) {
+		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE, saving";
 		saveMi();
+		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE, done saving";
 	}
+	OBJLOG(WARNING) << "HACKINGLAB: going to inteileave";
 	deinterleave();
+	OBJLOG(WARNING) << "HACKINGLAB: done interleaving";
 	if (decode()) {
+		OBJLOG(WARNING) << "HACKINGLAB: decode successful";
 		countGoodFrame(1);
 		countBER(mVCoder.getBEC(),mC.size());
 		mD.LSB8MSB();
 		handleGoodFrame();
 	} else {
+		OBJLOG(WARNING) << "HACKINGLAB: decrypt unsuccesful";
 		if (mEncrypted == ENCRYPT_MAYBE) {
+			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE restoring";
 			// We don't want to start decryption until we get the (encrypted) layer 2 acknowledgement
 			// of the Ciphering Mode Command, so we start maybe decrypting when we send the command,
 			// and when the frame comes along, we'll see that it doesn't pass normal decoding, but
 			// when we try again with decryption, it will pass.  Unless it's just noise.
-			OBJLOG(DEBUG) << "XCCHL1Decoder: try decoding again with decryption";
+			OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder: try decoding again with decryption";
 			restoreMi();
+			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE decrypting";
 			decrypt();
+			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE deinterleaving";
 			deinterleave();
+			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE decoding";
 			if (decode()) {
-				OBJLOG(DEBUG) << "XCCHL1Decoder: success on 2nd try";
+				OBJLOG(WARNING) << "HACKINGLAB: Decode successful";
+				OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder: success on 2nd try";
 				// We've successfully decoded an encrypted frame.  Start decrypting all uplink frames.
 				mEncrypted = ENCRYPT_YES;
 				// Also start encrypting downlink frames.
@@ -778,9 +794,11 @@ void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 				handleGoodFrame();
 				countBER(mVCoder.getBEC(),mC.size());
 			} else {
+				OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE bad frame";
 				countBadFrame(1);
 			}
 		} else {
+			OBJLOG(WARNING) << "HACKINGLAB: bad frame";
 			countBadFrame(1);
 		}
 	}
@@ -1455,6 +1473,9 @@ void TCHFRL1Decoder::setAmrMode(AMRMode wMode)
 
 void TCHFACCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 {
+
+	OBJLOG(WARNING) << "IN TCHFACCHL1Decoder::writeLowSideRx";
+
 	L1FEC *fparent = parent();
 	if (fparent->mGprsReserved) {	// Channel is reserved for gprs.
 		if (parent()->mGPRSFEC) {	// If set, bursts are delivered to this FEC in GPRS.
@@ -1462,10 +1483,10 @@ void TCHFACCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 		}
 		return;	// done
 	}
-	OBJLOG(DEBUG) << "TCHFACCHL1Decoder " << inBurst <<LOGVAR(mHandoverPending);	// <<LOGVAR(mT3101.remaining());
+	OBJLOG(WARNING) << "TCHFACCHL1Decoder " << inBurst <<LOGVAR(mHandoverPending);	// <<LOGVAR(mT3101.remaining());
 	// If the channel is closed, ignore the burst.
 	if (!decActive()) {
-		OBJLOG(DEBUG) << "TCHFACCHL1Decoder not active, ignoring input";
+		OBJLOG(WARNING) << "TCHFACCHL1Decoder not active, ignoring input";
 		return;
 	}
 	ScopedLock lock(mDecLock,__FILE__,__LINE__);	// this better be redundant.
@@ -1476,20 +1497,20 @@ void TCHFACCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 		// Based on the RACHL1Decoder.
 
 		//LOG(DEBUG) << "handover access " << inBurst;
-		OBJLOG(NOTICE) << "handover access " << inBurst;
+		OBJLOG(WARNING) << "handover access " << inBurst;
 
 		// Decode the burst.
 		const SoftVector e(inBurst.segment(49,36));
 		//e.decode(mVCoder,mHU);
 		mVCoder.decode(e,mHU);
-		OBJLOG(DEBUG) << "handover access U=" << mHU;
+		OBJLOG(WARNING) << "handover access U=" << mHU;
 		// Check the tail bits -- should all the zero.
 		if (mHU.peekField(14,4)) return;
 		// Check the parity.
 		unsigned sentParity = ~mHU.peekField(8,6);
 		unsigned checkParity = mHD.parity(mHParity);
 		unsigned encodedBSIC = (sentParity ^ checkParity) & 0x03f;
-		OBJLOG(DEBUG) << "handover access sentParity " << sentParity
+		OBJLOG(WARNING) << "handover access sentParity " << sentParity
 			<< " checkParity " << checkParity
 			<< " endcodedBSIC " << encodedBSIC;
 		if (encodedBSIC != gBTS.BSIC()) return;

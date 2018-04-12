@@ -17,4 +17,6 @@ RRLP
 libsqliteodbc
 #system-config
 libcoredumper
-.vscode 
+.vscode
+.idea/*
+cmake-build-debug/*
