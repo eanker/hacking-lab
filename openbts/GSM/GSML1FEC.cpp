@@ -843,11 +843,15 @@ void XCCHL1Decoder::decrypt()
 		int t3 = fn % 51;
 		int count = (t1<<11) | (t3<<5) | t2;
 		LOG(DEBUG) <<LOGVAR(fn) <<LOGVAR(count);
+        LOG(DEBUG) << "HACKINGLAB: EncryptionCall0 " << LOGVAR(mEncryptionAlgorithm);
 		if (mEncryptionAlgorithm == 1) {
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall01 " << LOGVAR(mEncryptionAlgorithm);
 			A51_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 3) {
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall03 " << LOGVAR(mEncryptionAlgorithm);
 			A53_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 2) {
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 " << LOGVAR(mEncryptionAlgorithm);
             A52_GSM(mKc, 64, count, block1, block2);
 		} else {
 			devassert(0);
@@ -1217,11 +1221,15 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 			int t2 = fn % 26;
 			int t3 = fn % 51;
 			int count = (t1<<11) | (t3<<5) | t2;
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall1 " << LOGVAR(mEncryptionAlgorithm);
 			if (mEncryptionAlgorithm == 1) {
+                LOG(DEBUG) << "HACKINGLAB: EncryptionCall11 " << LOGVAR(mEncryptionAlgorithm);
 				A51_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 3) {
+                LOG(DEBUG) << "HACKINGLAB: EncryptionCall13 " << LOGVAR(mEncryptionAlgorithm);
 				A53_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 2) {
+                LOG(DEBUG) << "HACKINGLAB: EncryptionCall12 " << LOGVAR(mEncryptionAlgorithm);
                 A52_GSM(kc, 64, count, block1, block2);
 			} else {
 				devassert(0);
@@ -1714,11 +1722,15 @@ void TCHFACCHL1Decoder::decrypt(int B)
 		int t2 = fn % 26;
 		int t3 = fn % 51;
 		int count = (t1<<11) | (t3<<5) | t2;
+        LOG(DEBUG) << "HACKINGLAB: EncryptionCall2 " << LOGVAR(mEncryptionAlgorithm);
 		if (mEncryptionAlgorithm == 1) {
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall21 " << LOGVAR(mEncryptionAlgorithm);
 			A51_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 3) {
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall23 " << LOGVAR(mEncryptionAlgorithm);
 			A53_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 2){
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall22 " << LOGVAR(mEncryptionAlgorithm);
             A52_GSM(mKc, 64, count, block1, block2);
 		} else {
 			devassert(0);
@@ -2402,11 +2414,15 @@ void TCHFACCHL1Encoder::dispatch()
 			int t2 = fn % 26;
 			int t3 = fn % 51;
 			int count = (t1<<11) | (t3<<5) | t2;
+            LOG(DEBUG) << "HACKINGLAB: EncryptionCall3 " << LOGVAR(mEncryptionAlgorithm);
 			if (mEncryptionAlgorithm == 1) {
+                LOG(DEBUG) << "HACKINGLAB: EncryptionCall31 " << LOGVAR(mEncryptionAlgorithm);
 				A51_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 3) {
+                LOG(DEBUG) << "HACKINGLAB: EncryptionCall33 " << LOGVAR(mEncryptionAlgorithm);
 				A53_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 2) {
+                LOG(DEBUG) << "HACKINGLAB: EncryptionCall32 " << LOGVAR(mEncryptionAlgorithm);
                 A52_GSM(kc, 64, count, block1, block2);
 			} else {
 				devassert(0);
