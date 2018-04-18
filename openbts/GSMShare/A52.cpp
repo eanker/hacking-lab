@@ -203,3 +203,69 @@ void A52_GSM( byte *key, int klen, int count, byte *block1, byte *block2 )
 	A52keysetup(key, count); // TODO - frame and count are not the same
 	A52run(block1, block2);
 }
+
+/* Test the code by comparing it against
+ * a known-good test vector. */
+void test() {
+    byte key[8] = {0x00, 0xfc, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff};
+    word frame = 0x21;
+    byte goodAtoB[15] = { 0xf4, 0x51, 0x2c, 0xac, 0x13, 0x59, 0x37,
+                          0x64, 0x46, 0x0b, 0x72, 0x2d, 0xad, 0xd5, 0x00 };
+    byte goodBtoA[15] = { 0x48, 0x00, 0xd4, 0x32, 0x8e, 0x16, 0xa1,
+                          0x4d, 0xcd, 0x7b, 0x97, 0x22, 0x26, 0x51, 0x00 };
+    byte AtoB[15], BtoA[15];
+    int i, failed=0;
+
+    A52_GSM(key, 64, frame, AtoB, BtoA);
+
+//    keysetup(key, frame);
+//    run(AtoB, BtoA);
+
+
+    /* Compare against the test vector. */
+    for (i=0; i<15; i++)
+        if (AtoB[i] != goodAtoB[i])
+            failed = 1;
+    for (i=0; i<15; i++)
+        if (BtoA[i] != goodBtoA[i])
+            failed = 1;
+
+
+    /* Print some debugging output. */
+    printf("key: 0x");
+    for (i=0; i<8; i++)
+        printf("%02X", key[i]);
+    printf("\n");
+    printf("frame number: 0x%06X\n", (unsigned int)frame);
+    printf("known good output:\n");
+    printf(" A->B: 0x");
+    for (i=0; i<15; i++)
+        printf("%02X", goodAtoB[i]);
+    printf("  B->A: 0x");
+    for (i=0; i<15; i++)
+        printf("%02X", goodBtoA[i]);
+    printf("\n");
+    printf("observed output:\n");
+    printf(" A->B: 0x");
+    for (i=0; i<15; i++)
+        printf("%02X", AtoB[i]);
+    printf("  B->A: 0x");
+    for (i=0; i<15; i++)
+        printf("%02X", BtoA[i]);
+    printf("\n");
+
+
+    if (!failed) {
+        printf("Self-check succeeded: everything looks ok.\n");
+//        exit(0);
+    } else {
+        /* Problems!  The test vectors didn't compare*/
+        printf("\nI don't know why this broke; contact the authors.\n");
+    }
+}
+
+
+int main(void) {
+    test();
+    return 0;
+}
