@@ -1,0 +1,10 @@
+._*
+*.o
+*.so
+*.so.*
+build-arch-stamp
+build-indep-stamp
+debian/debhelper.log
+debian/files
+debian/substvars
+debian/tmp/
