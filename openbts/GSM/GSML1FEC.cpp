@@ -928,13 +928,13 @@ bool SharedL1Decoder::decode()
 {
 	// Apply the convolutional decoder and parity check.
 	// Return true if we recovered a good L2 frame.
-
+    LOG(WARNING) << "HACKINGLAB: CallToSharedL1Decoder";
 	// Convolutional decoding c[] to u[].
 	// GSM 05.03 4.1.3
-	OBJLOG(DEBUG) <<"XCCHL1Decoder "<< mC;
+	OBJLOG(WARNING) <<"XCCHL1Decoder "<< mC;
 	//mC.decode(mVCoder,mU);
 	mVCoder.decode(mC,mU);
-	OBJLOG(DEBUG) <<"XCCHL1Decoder "<< mU;
+	OBJLOG(WARNING) <<"XCCHL1Decoder "<< mU;
 
 	// The GSM L1 u-frame has a 40-bit parity field.
 	// False detections are EXTREMELY rare.
@@ -942,14 +942,15 @@ bool SharedL1Decoder::decode()
 	// GSM 05.03 4.1.2.
 	mP.invert();							// parity is inverted
 	// The syndrome should be zero.
-	OBJLOG(DEBUG) <<"XCCHL1Decoder d[]:p[]=" << mDP;
+	OBJLOG(WARNING) <<"XCCHL1Decoder d[]:p[]=" << mDP;
 	unsigned syndrome = mBlockCoder.syndrome(mDP);
-	OBJLOG(DEBUG) <<"XCCHL1Decoder syndrome=" << hex << syndrome << dec;
+	OBJLOG(WARNING) <<"XCCHL1Decoder syndrome=" << hex << syndrome << dec;
 	// Simulate high FER for testing?
 	if (random()%100 < gConfig.getNum("Test.GSM.SimulatedFER.Uplink")) {
-		OBJLOG(NOTICE) << "XCCHL1Decoder simulating dropped uplink frame at " << mReadTime;
+		OBJLOG(WARNING) << "XCCHL1Decoder simulating dropped uplink frame at " << mReadTime;
 		return false;
 	}
+	LOG(WARNING) << "HACKINGLAB: value syndrome: " << LOGVAR(syndrome);
 	return (syndrome==0);
 }
 
@@ -1895,7 +1896,7 @@ bool TCHFRL1Decoder::decodeTCH_GSM(bool stolen,const SoftVector *wC)
 
 	// Simulate high FER for testing?
 	if (random()%100 < gConfig.getNum("Test.GSM.SimulatedFER.Uplink")) {
-		OBJLOG(DEBUG) << "simulating dropped uplink vocoder frame at " << mReadTime;
+		OBJLOG(WARNING) << "simulating dropped uplink vocoder frame at " << mReadTime;
 		stolen = true;
 	}
 
@@ -2025,6 +2026,7 @@ bool TCHFRL1Decoder::decodeTCH_GSM(bool stolen,const SoftVector *wC)
 
 bool TCHFRL1Decoder::decodeTCH_AFS(bool stolen, const SoftVector *wC)
 {
+    LOG(WARING) << "HACKINGLAB: TCHFRL1Decoder-Decoding TCH_AFS, stolen: " << LOGVAR(stolen);
 	// GSM 05.03 3.1.2, but backwards
 	// except for full speed AMR, which is 3.9.4
 
@@ -2062,15 +2064,16 @@ bool TCHFRL1Decoder::decodeTCH_AFS(bool stolen, const SoftVector *wC)
 		BitVector2 class1A = mTCHU.segment(0, mClass1ALth);
 		unsigned calcParity = class1A.parity(mTCHParity) & 0x3f;
 
-		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder c[]=" << *wC;	// Does a copy.  Gotta love it.
+		OBJLOG(WARNING) <<"TCHFACCHL1Decoder c[]=" << *wC;	// Does a copy.  Gotta love it.
 		//OBJLOG(DEBUG) <<"TCHFACCHL1Decoder uc[]=" << mTCHUC;
-		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder u[]=" << mTCHU;
-		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder d[]=" << mTCHD;
-		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder sentParity=" << sentParity \
+		OBJLOG(WARNING) <<"TCHFACCHL1Decoder u[]=" << mTCHU;
+		OBJLOG(WARNING) <<"TCHFACCHL1Decoder d[]=" << mTCHD;
+		OBJLOG(WARNING) <<"TCHFACCHL1Decoder sentParity=" << sentParity \
 			<< " calcParity=" << calcParity;
 
 		good = sentParity == calcParity;
 		if (good) {
+            LOG(WARNING) << "HACKINGLAB: good is set";
 			// Undo Um's importance-sorted bit ordering.
 			// See GSM 05.03 3.9.4.2 and Tables 7-14.
 			//BitVector2 payload = mAmrVFrame.payload();
@@ -2118,9 +2121,10 @@ bool TCHFRL1Decoder::decodeTCH_AFS(bool stolen, const SoftVector *wC)
 
 bool TCHFRL1Decoder::decodeTCH(bool stolen, const SoftVector *wC)	// result goes to sendTCHUp()
 {
+    LOG(WARNING) << "HACKINGLAB: TCHFRL1Decoder-DecodeTCH, stolen: " << LOGVAR(stolen);
 	// Simulate high FER for testing?
 	if (random()%100 < gConfig.getNum("Test.GSM.SimulatedFER.Uplink")) {
-		OBJLOG(DEBUG) << "simulating dropped uplink vocoder frame at " << mReadTime;
+		OBJLOG(WARNING) << "simulating dropped uplink vocoder frame at " << mReadTime;
 		stolen = true;
 	}
 
