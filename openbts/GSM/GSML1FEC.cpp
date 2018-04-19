@@ -860,6 +860,7 @@ void XCCHL1Decoder::decrypt()
 			if ((block2[j/8] & (0x80 >> (j%8)))) {
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
+			LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(j) << " value " << LOGVAR(mI[i][j]);
 		}
 	}
 }
@@ -920,6 +921,7 @@ void SharedL1Decoder::deinterleave()
 		// This makes it possible for the soft decoder to work around
 		// a missing burst.
 		mI[B][j] = 0.5F;
+		LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
 }
 
@@ -1740,6 +1742,7 @@ void TCHFACCHL1Decoder::decrypt(int B)
 			if ((block2[j/8] & (0x80 >> (j%8)))) {
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
+			LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(j) << " value " << LOGVAR(mI[i][j]);
 		}
 	}
 }
@@ -1754,6 +1757,7 @@ void TCHFACCHL1Decoder::deinterleaveTCH(int blockOffset )
 		int j = 2*((49*k) % 57) + ((k%8)/4);
 		mC[k] = mI[B][j];
 		mI[B][j] = 0.5F;
+		LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
 }
 
