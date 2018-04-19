@@ -17,7 +17,7 @@ RRLP
 #asterisk
 libsqliteodbc
 #system-config
-libcoredumper
+#libcoredumper
 .vscode
 .idea/*
 cmake-build-debug/*
