@@ -2026,7 +2026,7 @@ bool TCHFRL1Decoder::decodeTCH_GSM(bool stolen,const SoftVector *wC)
 
 bool TCHFRL1Decoder::decodeTCH_AFS(bool stolen, const SoftVector *wC)
 {
-    LOG(WARING) << "HACKINGLAB: TCHFRL1Decoder-Decoding TCH_AFS, stolen: " << LOGVAR(stolen);
+    LOG(WARNING) << "HACKINGLAB: TCHFRL1Decoder-Decoding TCH_AFS, stolen: " << LOGVAR(stolen);
 	// GSM 05.03 3.1.2, but backwards
 	// except for full speed AMR, which is 3.9.4
 
