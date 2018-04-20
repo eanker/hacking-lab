@@ -830,7 +830,7 @@ void XCCHL1Decoder::restoreMi()
 }
 
 	//Laatste byte enkel eerste twee bits pakken, MSB
-	void toByteArray(ubit_t* bits, byte *bytes) {
+	void toByteArray(ubit_t* bits, byte bytes[15]) {
 		for(int i = 0; i < 14; i++) {
 			bytes[i] = (bits[(i*8)]&1)<<7
 					   |(bits[(i*8)+1]&1)<<6
@@ -872,8 +872,8 @@ void XCCHL1Decoder::decrypt()
 			ubit_t block1_converted[114];
 			ubit_t block2_converted[114];
 			osmo_a5_2(mKc, 64, block1_converted, block2_converted);
-			toByteArray(block1_converted, &block1);
-			toByteArray(block2_converted, &block2);
+			toByteArray(block1_converted, block1);
+			toByteArray(block2_converted, block2);
 			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
 			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
 			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
@@ -1262,8 +1262,8 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 				ubit_t block1_converted[114];
 				ubit_t block2_converted[114];
 				osmo_a5_2(kc, 64, block1_converted, block2_converted);
-				toByteArray(block1_converted, &block1);
-				toByteArray(block2_converted, &block2);
+				toByteArray(block1_converted, block1);
+				toByteArray(block2_converted, block2);
 				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
 				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
 				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
@@ -1771,8 +1771,8 @@ void TCHFACCHL1Decoder::decrypt(int B)
 			ubit_t block1_converted[114];
 			ubit_t block2_converted[114];
 			osmo_a5_2(mKc, 64, block1_converted, block2_converted);
-			toByteArray(block1_converted, &block1);
-			toByteArray(block2_converted, &block2);
+			toByteArray(block1_converted, block1);
+			toByteArray(block2_converted, block2);
 			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
 			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
 			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
@@ -2477,8 +2477,8 @@ void TCHFACCHL1Encoder::dispatch()
 				ubit_t block1_converted[114];
 				ubit_t block2_converted[114];
 				osmo_a5_2(kc, 64, block1_converted, block2_converted);
-				toByteArray(block1_converted, &block1);
-				toByteArray(block2_converted, &block2);
+				toByteArray(block1_converted, block1);
+				toByteArray(block2_converted, block2);
 				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
 				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
 				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
