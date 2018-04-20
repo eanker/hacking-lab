@@ -43,6 +43,7 @@
 #include <OpenBTSConfig.h>
 
 #include "../GPRS/GPRSExport.h"
+#include "../../liba53/a5.h"
 
 
 class ARFCNManager;
@@ -82,8 +83,7 @@ enum EncryptionType {
 	ENCRYPT_YES
 };
 
-
-
+void toByteArray(ubit_t* bits, byte *bytes);
 
 /**
 	Abstract class for L1 encoders.

@@ -39,6 +39,7 @@
 #include <time.h>
 
 #include "../GPRS/GPRSExport.h"
+#include "../../liba53/a5.h"
 
 #undef WARNING
 
@@ -828,6 +829,20 @@ void XCCHL1Decoder::restoreMi()
 	}
 }
 
+	//Laatste byte enkel eerste twee bits pakken, MSB
+	void toByteArray(ubit_t* bits, byte *bytes) {
+		for(int i = 0; i < 14; i++) {
+			bytes[i] = (bits[(i*8)]&1)<<7
+					   |(bits[(i*8)+1]&1)<<6
+					   |(bits[(i*8)+2]&1)<<5
+					   |(bits[(i*8)+3]&1)<<4
+					   |(bits[(i*8)+4]&1)<<3
+					   |(bits[(i*8)+5]&1)<<2
+					   |(bits[(i*8)+6]&1)<<1
+					   |(bits[(i*8)+7]&1)<<0;
+		}
+		bytes[14] = 0|((bits[112]&1)<<1)|(bits[113]&1);
+	}
 
 void XCCHL1Decoder::decrypt()
 {
@@ -852,7 +867,16 @@ void XCCHL1Decoder::decrypt()
 			A53_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 2) {
             LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 " << LOGVAR(mEncryptionAlgorithm);
-            A52_GSM(mKc, 64, count, block1, block2);
+            //A52_GSM(mKc, 64, count, block1, block2);
+
+			ubit_t *block1_converted[114];
+			ubit_t *block2_converted[114];
+			osmo_a5_2(mKc, 64, block1_converted, block2_converted);
+			toByteArray(block1_converted, &block1);
+			toByteArray(block2_converted, &block2);
+			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
+			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
+			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
 		} else {
 			devassert(0);
 		}
@@ -1234,7 +1258,15 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 				A53_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 2) {
                 LOG(DEBUG) << "HACKINGLAB: EncryptionCall12 " << LOGVAR(mEncryptionAlgorithm);
-                A52_GSM(kc, 64, count, block1, block2);
+                //A52_GSM(kc, 64, count, block1, block2);
+				ubit_t *block1_converted[114];
+				ubit_t *block2_converted[114];
+				osmo_a5_2(mKc, 64, block1_converted, block2_converted);
+				toByteArray(block1_converted, &block1);
+				toByteArray(block2_converted, &block2);
+				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
+				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
+				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
 			} else {
 				devassert(0);
 			}
@@ -1735,7 +1767,15 @@ void TCHFACCHL1Decoder::decrypt(int B)
 			A53_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 2){
             LOG(DEBUG) << "HACKINGLAB: EncryptionCall22 " << LOGVAR(mEncryptionAlgorithm);
-            A52_GSM(mKc, 64, count, block1, block2);
+            //A52_GSM(mKc, 64, count, block1, block2);
+			ubit_t *block1_converted[114];
+			ubit_t *block2_converted[114];
+			osmo_a5_2(mKc, 64, block1_converted, block2_converted);
+			toByteArray(block1_converted, &block1);
+			toByteArray(block2_converted, &block2);
+			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
+			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
+			LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
 		} else {
 			devassert(0);
 		}
@@ -2433,7 +2473,15 @@ void TCHFACCHL1Encoder::dispatch()
 				A53_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 2) {
                 LOG(DEBUG) << "HACKINGLAB: EncryptionCall32 " << LOGVAR(mEncryptionAlgorithm);
-                A52_GSM(kc, 64, count, block1, block2);
+                //A52_GSM(kc, 64, count, block1, block2);
+				ubit_t *block1_converted[114];
+				ubit_t *block2_converted[114];
+				osmo_a5_2(mKc, 64, block1_converted, block2_converted);
+				toByteArray(block1_converted, &block1);
+				toByteArray(block2_converted, &block2);
+				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 OSMO DID NOT FAIL";
+				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block1);
+				LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 value 1" << LOGVAR(block2);
 			} else {
 				devassert(0);
 			}
