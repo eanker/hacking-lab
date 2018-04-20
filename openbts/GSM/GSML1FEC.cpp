@@ -869,8 +869,8 @@ void XCCHL1Decoder::decrypt()
             LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 " << LOGVAR(mEncryptionAlgorithm);
             //A52_GSM(mKc, 64, count, block1, block2);
 
-			ubit_t *block1_converted[114];
-			ubit_t *block2_converted[114];
+			ubit_t block1_converted[114];
+			ubit_t block2_converted[114];
 			osmo_a5_2(mKc, 64, block1_converted, block2_converted);
 			toByteArray(block1_converted, &block1);
 			toByteArray(block2_converted, &block2);
@@ -1259,8 +1259,8 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 			} else if (mEncryptionAlgorithm == 2) {
                 LOG(DEBUG) << "HACKINGLAB: EncryptionCall12 " << LOGVAR(mEncryptionAlgorithm);
                 //A52_GSM(kc, 64, count, block1, block2);
-				ubit_t *block1_converted[114];
-				ubit_t *block2_converted[114];
+				ubit_t block1_converted[114];
+				ubit_t block2_converted[114];
 				osmo_a5_2(kc, 64, block1_converted, block2_converted);
 				toByteArray(block1_converted, &block1);
 				toByteArray(block2_converted, &block2);
@@ -1768,8 +1768,8 @@ void TCHFACCHL1Decoder::decrypt(int B)
 		} else if (mEncryptionAlgorithm == 2){
             LOG(DEBUG) << "HACKINGLAB: EncryptionCall22 " << LOGVAR(mEncryptionAlgorithm);
             //A52_GSM(mKc, 64, count, block1, block2);
-			ubit_t *block1_converted[114];
-			ubit_t *block2_converted[114];
+			ubit_t block1_converted[114];
+			ubit_t block2_converted[114];
 			osmo_a5_2(mKc, 64, block1_converted, block2_converted);
 			toByteArray(block1_converted, &block1);
 			toByteArray(block2_converted, &block2);
@@ -2474,8 +2474,8 @@ void TCHFACCHL1Encoder::dispatch()
 			} else if (mEncryptionAlgorithm == 2) {
                 LOG(DEBUG) << "HACKINGLAB: EncryptionCall32 " << LOGVAR(mEncryptionAlgorithm);
                 //A52_GSM(kc, 64, count, block1, block2);
-				ubit_t *block1_converted[114];
-				ubit_t *block2_converted[114];
+				ubit_t block1_converted[114];
+				ubit_t block2_converted[114];
 				osmo_a5_2(kc, 64, block1_converted, block2_converted);
 				toByteArray(block1_converted, &block1);
 				toByteArray(block2_converted, &block2);
