@@ -1760,7 +1760,7 @@ void TCHFACCHL1Decoder::deinterleaveTCH(int blockOffset )
 		mI[B][j] = 0.5F;
 		//LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
-	LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC);
+	LOG(WARNING) << "HACKINGLAB: INTERLEAVE value " << LOGVAR(mC);
 }
 
 void TCHFACCHL1Decoder::addToSpeechQ(AudioFrame *newFrame)  { mSpeechQ.write(newFrame); }
