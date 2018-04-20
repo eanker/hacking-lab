@@ -923,6 +923,13 @@ void SharedL1Decoder::deinterleave()
 		mI[B][j] = 0.5F;
 		LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
+	char *result = malloc(456);
+	strcpy(result, mC[0]);
+	for(int i = 1; i < 456; i++) {
+		strcat(result, mC[i]);
+	}
+	LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(result);
+	free(result);
 }
 
 
@@ -1744,6 +1751,13 @@ void TCHFACCHL1Decoder::decrypt(int B)
 			}
 			LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(j) << " value " << LOGVAR(mI[i][j]);
 		}
+		char *result = malloc(114);
+		strcpy(result, mI[i][0]);
+		for(int m = 1; m < 114; m++) {
+			strcat(result, mC[i][m]);
+		}
+		LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(k) << " value " << LOGVAR(result);
+		free(result);
 	}
 }
 
