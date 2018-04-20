@@ -980,8 +980,8 @@ bool TMSITable::classmark(const char* IMSI, const GSM::L3MobileStationClassmark2
 unsigned getPreferredA5Algorithm(unsigned A5Bits)
 {
 	if (A5Bits & GSM::EncryptionAlgorithm::Bit5_2) return 2;	// not supported
-	if (A5Bits & GSM::EncryptionAlgorithm::Bit5_3) return 3;
 	if (A5Bits & GSM::EncryptionAlgorithm::Bit5_1) return 1;
+	if (A5Bits & GSM::EncryptionAlgorithm::Bit5_3) return 3;
 	return 0;
 }
 

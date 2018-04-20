@@ -860,8 +860,8 @@ void XCCHL1Decoder::decrypt()
 			if ((block2[j/8] & (0x80 >> (j%8)))) {
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
-			LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(j) << " value " << LOGVAR(mI[i][j]);
 		}
+		LOG(WARNING) << "HACKINGLAB: DECRYPT  value " << LOGVAR(mI[i]);
 	}
 }
 
@@ -921,15 +921,9 @@ void SharedL1Decoder::deinterleave()
 		// This makes it possible for the soft decoder to work around
 		// a missing burst.
 		mI[B][j] = 0.5F;
-		LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
+		//LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
-	char *result = malloc(456);
-	strcpy(result, mC[0]);
-	for(int i = 1; i < 456; i++) {
-		strcat(result, mC[i]);
-	}
-	LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(result);
-	free(result);
+	LOG(WARNING) << "HACKINGLAB: INTERLEAVE value " << LOGVAR(mC);
 }
 
 
@@ -1749,15 +1743,8 @@ void TCHFACCHL1Decoder::decrypt(int B)
 			if ((block2[j/8] & (0x80 >> (j%8)))) {
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
-			LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(j) << " value " << LOGVAR(mI[i][j]);
 		}
-		char *result = malloc(114);
-		strcpy(result, mI[i][0]);
-		for(int m = 1; m < 114; m++) {
-			strcat(result, mC[i][m]);
-		}
-		LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(k) << " value " << LOGVAR(result);
-		free(result);
+		LOG(WARNING) << "HACKINGLAB: DECRYPT value " << LOGVAR(mI[i]);
 	}
 }
 
@@ -1771,8 +1758,9 @@ void TCHFACCHL1Decoder::deinterleaveTCH(int blockOffset )
 		int j = 2*((49*k) % 57) + ((k%8)/4);
 		mC[k] = mI[B][j];
 		mI[B][j] = 0.5F;
-		LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
+		//LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
+	LOG(WARNING) << "HACKINGLAB: INTERLEAVE value " << LOGVAR(mC);
 }
 
 void TCHFACCHL1Decoder::addToSpeechQ(AudioFrame *newFrame)  { mSpeechQ.write(newFrame); }
