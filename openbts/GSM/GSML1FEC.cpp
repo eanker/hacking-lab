@@ -1274,7 +1274,7 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 				//A51_GSM(kc, 64, count, block1, block2);
 				ubit_t block1_converted[114];
 				ubit_t block2_converted[114];
-				osmo_a5_1(mKc, 64, block1_converted, block2_converted);
+				osmo_a5_1(kc, 64, block1_converted, block2_converted);
 				toByteArray(block1_converted, block1);
 				toByteArray(block2_converted, block2);
 				LOG(DEBUG) << "HACKINGLAB: EncryptionCall01 OSMO DID NOT FAIL";
