@@ -1743,15 +1743,8 @@ void TCHFACCHL1Decoder::decrypt(int B)
 			if ((block2[j/8] & (0x80 >> (j%8)))) {
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
-			LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(j) << " value " << LOGVAR(mI[i][j]);
 		}
-		char *result = malloc(114);
-		strcpy(result, mI[i][0]);
-		for(int m = 1; m < 114; m++) {
-			strcat(result, mC[i][m]);
-		}
-		LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(k) << " value " << LOGVAR(result);
-		free(result);
+		LOG(WARNING) << "HACKINGLAB: DECRYPT value " << LOGVAR(mI[i]);
 	}
 }
 
