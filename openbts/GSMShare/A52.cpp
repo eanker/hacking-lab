@@ -104,8 +104,7 @@ bit A52getbit() {
     delaybit = (
         topbits
         ^ majority(A52R1&0x8000, (~A52R1)&0x4000, A52R1&0x1000)
-        //^ majority((~A52R2)&0x10000, A52R2&0x2000, A52R2&0x200)
-        ^ majority((~A52R2)&0x10000, A52R2&0x4000, A52R2&0x1000)
+        ^ majority((~A52R2)&0x10000, A52R2&0x2000, A52R2&0x200)
         ^ majority(A52R3&0x40000, A52R3&0x10000, (~A52R3)&0x2000)
         );
     return nowbit;
