@@ -861,7 +861,7 @@ void XCCHL1Decoder::decrypt()
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
 		}
-		LOG(WARNING) << "HACKINGLAB: DECRYPT " << LOGVAR(j) << " value " << LOGVAR(mI[i]);
+		LOG(WARNING) << "HACKINGLAB: DECRYPT  value " << LOGVAR(mI[i]);
 	}
 }
 
@@ -923,7 +923,7 @@ void SharedL1Decoder::deinterleave()
 		mI[B][j] = 0.5F;
 		//LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
-	LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC);
+	LOG(WARNING) << "HACKINGLAB: INTERLEAVE value " << LOGVAR(mC);
 }
 
 
