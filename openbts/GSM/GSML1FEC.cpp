@@ -771,7 +771,7 @@ void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 		mD.LSB8MSB();
 		handleGoodFrame();
 	} else {
-		OBJLOG(WARNING) << "HACKINGLAB: decrypt unsuccesful";
+		OBJLOG(WARNING) << "HACKINGLAB: decode unsuccesful";
 		if (mEncrypted == ENCRYPT_MAYBE) {
 			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE restoring";
 			// We don't want to start decryption until we get the (encrypted) layer 2 acknowledgement
@@ -780,7 +780,7 @@ void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 			// when we try again with decryption, it will pass.  Unless it's just noise.
 			OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder: try decoding again with decryption";
 			restoreMi();
-			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE decrypting";
+			OBJLOG(WARNING) << "HACKINGLAB: decrypting with "<<LOGVAR(mKc)<<" "<<LOGVAR(mI[0])<<" "<<LOGVAR(mI[1])<<" "<<LOGVAR(mI[2])<<" "<<LOGVAR(mI[3]);
 			decrypt();
 			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE deinterleaving";
 			deinterleave();
