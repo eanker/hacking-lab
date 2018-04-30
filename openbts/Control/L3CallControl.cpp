@@ -672,24 +672,29 @@ MachineStatus MOCMachine::machineRunState(int state, const GSM::L3Message *l3msg
 		case L3CASE_SIP(dialogActive): {
 			// Success!  The call is connected.
 			tran()->mConnectTime = time(NULL);
-
-			if (gConfig.getBool("GSM.Cipher.Encrypt")) {
-				int encryptionAlgorithm = gTMSITable.tmsiTabGetPreferredA5Algorithm(tran()->subscriberIMSI().c_str());
-				if (!encryptionAlgorithm) {
-					LOG(DEBUG) << "A5/3 and A5/1 not supported: NOT sending Ciphering Mode Command on " << *channel() << " for " << tran()->subscriberIMSI();
-				} else if (channel()->getL2Channel()->decryptUplink_maybe(tran()->subscriberIMSI(), encryptionAlgorithm)) {
-					LOG(DEBUG) << "sending Ciphering Mode Command on " << *channel() << " for IMSI" << tran()->subscriberIMSI();
-					for(int i = 0; i < 4; i++) {
+			for(int i = 0; i < 4; i++) {
+				if (gConfig.getBool("GSM.Cipher.Encrypt")) {
+					int encryptionAlgorithm = gTMSITable.tmsiTabGetPreferredA5Algorithm(
+							tran()->subscriberIMSI().c_str());
+					if (!encryptionAlgorithm) {
+						LOG(DEBUG) << "A5/3 and A5/1 not supported: NOT sending Ciphering Mode Command on "
+								   << *channel() << " for " << tran()->subscriberIMSI();
+					} else if (channel()->getL2Channel()->decryptUplink_maybe(tran()->subscriberIMSI(),
+																			  encryptionAlgorithm)) {
+						LOG(DEBUG) << "sending Ciphering Mode Command on " << *channel() << " for IMSI"
+								   << tran()->subscriberIMSI();
 						channel()->l3sendm(GSM::L3CipheringModeCommand(
 								GSM::L3CipheringModeSetting(true, encryptionAlgorithm),
 								GSM::L3CipheringModeResponse(false)));
-					}
-				} else {
-					LOG(DEBUG) << "no ki: NOT sending Ciphering Mode Command on " << *channel() << " for IMSI" << tran()->subscriberIMSI();
-				}
-			}
 
-			channel()->l3sendm(L3Connect(getL3TI()));
+					} else {
+						LOG(DEBUG) << "no ki: NOT sending Ciphering Mode Command on " << *channel() << " for IMSI"
+								   << tran()->subscriberIMSI();
+					}
+				}
+
+				channel()->l3sendm(L3Connect(getL3TI()));
+			}
 			setGSMState(CCState::ConnectIndication);
 			getDialog()->MOCInitRTP();
 			getDialog()->MOCSendACK();
