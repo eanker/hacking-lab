@@ -104,8 +104,7 @@ bit A52getbit() {
     delaybit = (
         topbits
         ^ majority(A52R1&0x8000, (~A52R1)&0x4000, A52R1&0x1000)
-        //^ majority((~A52R2)&0x10000, A52R2&0x2000, A52R2&0x200)
-        ^ majority((~A52R2)&0x10000, A52R2&0x4000, A52R2&0x1000)
+        ^ majority((~A52R2)&0x10000, A52R2&0x2000, A52R2&0x200)
         ^ majority(A52R3&0x40000, A52R3&0x10000, (~A52R3)&0x2000)
         );
     return nowbit;
@@ -131,7 +130,7 @@ void A52keysetup(byte key[8], word frame) {
      * control rule is temporarily disabled.) */
     for (i=0; i<64; i++) {
         clock(1,0); /* always clock */
-        keybit = (key[i/8] >> (i&7)) & 1; /* The i-th bit of the key */
+        keybit = (key[7-i/8] >> (i&7)) & 1; /* The i-th bit of the key */
         A52R1 ^= keybit; A52R2 ^= keybit; A52R3 ^= keybit;
         A52R4 ^= keybit;
     }
