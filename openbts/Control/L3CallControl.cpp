@@ -679,9 +679,11 @@ MachineStatus MOCMachine::machineRunState(int state, const GSM::L3Message *l3msg
 					LOG(DEBUG) << "A5/3 and A5/1 not supported: NOT sending Ciphering Mode Command on " << *channel() << " for " << tran()->subscriberIMSI();
 				} else if (channel()->getL2Channel()->decryptUplink_maybe(tran()->subscriberIMSI(), encryptionAlgorithm)) {
 					LOG(DEBUG) << "sending Ciphering Mode Command on " << *channel() << " for IMSI" << tran()->subscriberIMSI();
-					channel()->l3sendm(GSM::L3CipheringModeCommand(
-						GSM::L3CipheringModeSetting(true, encryptionAlgorithm),
-						GSM::L3CipheringModeResponse(false)));
+					for(int i = 0; i < 4; i++) {
+						channel()->l3sendm(GSM::L3CipheringModeCommand(
+								GSM::L3CipheringModeSetting(true, encryptionAlgorithm),
+								GSM::L3CipheringModeResponse(false)));
+					}
 				} else {
 					LOG(DEBUG) << "no ki: NOT sending Ciphering Mode Command on " << *channel() << " for IMSI" << tran()->subscriberIMSI();
 				}
