@@ -1,10 +1,11 @@
 ._*
+*.*~
 *.changes
 *.deb
 *.dsc
 *.tar.gz
-liba53
-CommonLibs
+#liba53
+#CommonLibs
 #NodeManager
 #openbts
 libzmq
@@ -16,5 +17,7 @@ RRLP
 #asterisk
 libsqliteodbc
 #system-config
-libcoredumper
-.vscode 
+#libcoredumper
+.vscode
+.idea/*
+cmake-build-debug/*
