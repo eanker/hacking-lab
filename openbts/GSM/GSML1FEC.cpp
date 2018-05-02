@@ -267,7 +267,6 @@ void L1Encoder::encInit()
 	// (catching all the ways, and performing the handshake under less than
 	// ideal conditions), so we leave encryption on to the bitter end,
 	// then clear the encryption flag here, when the channel gets reused.
-    OBJLOG(WARNING) << "HACKINGLAB_L1Decoder_encInit: value of mEncrypted set to NO ";
 	mEncrypted = ENCRYPT_NO;
 	mEncryptionAlgorithm = 0;
 	// (pat) On very first initialization, start sending the dummy bursts;
@@ -409,11 +408,9 @@ bool imsi2kc(string wIMSI, unsigned char *wKc)
 // Return false and leave encryption off if there's no Kc.
 bool L1Decoder::decrypt_maybe(string wIMSI, int wA5Alg)
 {
-    OBJLOG(WARNING) << "HACKINGLAB_L1Decoder_decrypt_maybe: value of mEncrypted set to Maybe";
 	if (!imsi2kc(wIMSI, mKc)) return false;
 	mEncrypted = ENCRYPT_MAYBE;
 	mEncryptionAlgorithm = wA5Alg;
-    OBJLOG(WARNING) << "HACKINGLAB_L1Decoder_decrypt_maybe: value of mEncryptionAlgorithm " << wA5Alg;
 	LOG(DEBUG) << format("decrypt maybe imsi=%s algorithm=%d",wIMSI.c_str(),mEncryptionAlgorithm);
 	return true;
 }
@@ -473,7 +470,6 @@ void L1Decoder::decInit()
 	// (catching all the ways, and performing the handshake under less than
 	// ideal conditions), so we leave encryption on to the bitter end,
 	// then clear the encryption flag here, when the channel gets reused.
-    OBJLOG(WARNING) << "HACKINGLAB_L1Decoder_decrypt_maybe: value of mEncrypted set to NO ";
 	mEncrypted = ENCRYPT_NO;
 	mEncryptionAlgorithm = 0;
 	//mActive = true;
@@ -734,11 +730,10 @@ SharedL1Decoder::SharedL1Decoder()
 
 void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 {
-	OBJLOG(WARNING) << "HACKINGLAB: IN XCCHL1Decoder::writeLowSideRx";
-	OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder " << inBurst;
+	OBJLOG(DEBUG) <<"XCCHL1Decoder " << inBurst;
 	// If the channel is closed, ignore the burst.
 	if (!decActive()) {
-		OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder not active, ignoring input";
+		OBJLOG(DEBUG) <<"XCCHL1Decoder not active, ignoring input";
 		return;
 	}
 	mDecoderStats.countSNR(inBurst);
@@ -748,46 +743,31 @@ void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 
 	// Accept the burst into the deinterleaving buffer.
 	// Return true if we are ready to interleave.
-	OBJLOG(WARNING) << "HACKINGLAB: Processing burst";
 	if (!processBurst(inBurst)) return;
-	OBJLOG(WARNING) << "HACKINGLAB: Did not return from processing burst";
 	if (mEncrypted == ENCRYPT_YES) {
-		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_YES, going to decrypt";
 		decrypt();
-		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_YES, done decrypting";
 	}
 	if (mEncrypted == ENCRYPT_MAYBE) {
-		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE, saving";
 		saveMi();
-		OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE, done saving";
 	}
-	OBJLOG(WARNING) << "HACKINGLAB: going to inteileave";
 	deinterleave();
-	OBJLOG(WARNING) << "HACKINGLAB: done interleaving";
 	if (decode()) {
-		OBJLOG(WARNING) << "HACKINGLAB: decode successful";
 		countGoodFrame(1);
 		countBER(mVCoder.getBEC(),mC.size());
 		mD.LSB8MSB();
 		handleGoodFrame();
 	} else {
-		OBJLOG(WARNING) << "HACKINGLAB: decode unsuccesful";
 		if (mEncrypted == ENCRYPT_MAYBE) {
-			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE restoring";
 			// We don't want to start decryption until we get the (encrypted) layer 2 acknowledgement
 			// of the Ciphering Mode Command, so we start maybe decrypting when we send the command,
 			// and when the frame comes along, we'll see that it doesn't pass normal decoding, but
 			// when we try again with decryption, it will pass.  Unless it's just noise.
-			OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder: try decoding again with decryption";
+			OBJLOG(DEBUG) << "XCCHL1Decoder: try decoding again with decryption";
 			restoreMi();
-			OBJLOG(WARNING) << "HACKINGLAB: decrypting with "<<LOGVAR(mKc)<<" "<<LOGVAR(mI[0])<<" "<<LOGVAR(mI[1])<<" "<<LOGVAR(mI[2])<<" "<<LOGVAR(mI[3]);
 			decrypt();
-			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE deinterleaving";
 			deinterleave();
-			OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE decoding";
 			if (decode()) {
-				OBJLOG(WARNING) << "HACKINGLAB: Decode successful";
-				OBJLOG(WARNING) << "HACKINGLAB: XCCHL1Decoder: success on 2nd try";
+				OBJLOG(DEBUG) << "XCCHL1Decoder: success on 2nd try";
 				// We've successfully decoded an encrypted frame.  Start decrypting all uplink frames.
 				mEncrypted = ENCRYPT_YES;
 				// Also start encrypting downlink frames.
@@ -798,11 +778,9 @@ void XCCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 				handleGoodFrame();
 				countBER(mVCoder.getBEC(),mC.size());
 			} else {
-				OBJLOG(WARNING) << "HACKINGLAB: ENCRYPT_MAYBE bad frame";
 				countBadFrame(1);
 			}
 		} else {
-			OBJLOG(WARNING) << "HACKINGLAB: bad frame";
 			countBadFrame(1);
 		}
 	}
@@ -843,15 +821,11 @@ void XCCHL1Decoder::decrypt()
 		int t3 = fn % 51;
 		int count = (t1<<11) | (t3<<5) | t2;
 		LOG(DEBUG) <<LOGVAR(fn) <<LOGVAR(count);
-        LOG(DEBUG) << "HACKINGLAB: EncryptionCall0 " << LOGVAR(mEncryptionAlgorithm);
 		if (mEncryptionAlgorithm == 1) {
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall01 " << LOGVAR(mEncryptionAlgorithm);
 			A51_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 3) {
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall03 " << LOGVAR(mEncryptionAlgorithm);
 			A53_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 2) {
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall02 " << LOGVAR(mEncryptionAlgorithm);
             A52_GSM(mKc, 64, count, block1, block2);
 		} else {
 			devassert(0);
@@ -861,7 +835,6 @@ void XCCHL1Decoder::decrypt()
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
 		}
-		LOG(WARNING) << "HACKINGLAB: DECRYPT  value " << LOGVAR(mI[i]);
 	}
 }
 
@@ -921,9 +894,7 @@ void SharedL1Decoder::deinterleave()
 		// This makes it possible for the soft decoder to work around
 		// a missing burst.
 		mI[B][j] = 0.5F;
-		//LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
-	LOG(WARNING) << "HACKINGLAB: INTERLEAVE value " << LOGVAR(mC);
 }
 
 
@@ -931,13 +902,13 @@ bool SharedL1Decoder::decode()
 {
 	// Apply the convolutional decoder and parity check.
 	// Return true if we recovered a good L2 frame.
-    LOG(WARNING) << "HACKINGLAB: CallToSharedL1Decoder";
+
 	// Convolutional decoding c[] to u[].
 	// GSM 05.03 4.1.3
-	OBJLOG(WARNING) <<"XCCHL1Decoder "<< mC;
+	OBJLOG(DEBUG) <<"XCCHL1Decoder "<< mC;
 	//mC.decode(mVCoder,mU);
 	mVCoder.decode(mC,mU);
-	OBJLOG(WARNING) <<"XCCHL1Decoder "<< mU;
+	OBJLOG(DEBUG) <<"XCCHL1Decoder "<< mU;
 
 	// The GSM L1 u-frame has a 40-bit parity field.
 	// False detections are EXTREMELY rare.
@@ -945,15 +916,14 @@ bool SharedL1Decoder::decode()
 	// GSM 05.03 4.1.2.
 	mP.invert();							// parity is inverted
 	// The syndrome should be zero.
-	OBJLOG(WARNING) <<"XCCHL1Decoder d[]:p[]=" << mDP;
+	OBJLOG(DEBUG) <<"XCCHL1Decoder d[]:p[]=" << mDP;
 	unsigned syndrome = mBlockCoder.syndrome(mDP);
-	OBJLOG(WARNING) <<"XCCHL1Decoder syndrome=" << hex << syndrome << dec;
+	OBJLOG(DEBUG) <<"XCCHL1Decoder syndrome=" << hex << syndrome << dec;
 	// Simulate high FER for testing?
 	if (random()%100 < gConfig.getNum("Test.GSM.SimulatedFER.Uplink")) {
-		OBJLOG(WARNING) << "XCCHL1Decoder simulating dropped uplink frame at " << mReadTime;
+		OBJLOG(NOTICE) << "XCCHL1Decoder simulating dropped uplink frame at " << mReadTime;
 		return false;
 	}
-	LOG(WARNING) << "HACKINGLAB: value syndrome: " << LOGVAR(syndrome);
 	return (syndrome==0);
 }
 
@@ -1195,14 +1165,12 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 {
 	// Format the bits into the bursts.
 	// GSM 05.03 4.1.5, 05.02 5.2.3
-    OBJLOG(WARNING) << "HACKINGLAB_TRANSMIT: waiting to send ";
 	waitToSend();		// Don't get too far ahead of the clock.
-    OBJLOG(WARNING) << "HACKINGLAB_TRANSMIT: sent ";
+
 	if (!mDownstream) {
 		// For some testing, we might not have a radio connected.
 		// That's OK, as long as we know it.
 		LOG(WARNING) << "XCCHL1Encoder with no radio, dumping frames";
-        OBJLOG(WARNING) << "HACKINGLAB_TRANSMIT: no radio present ";
 		return;
 	}
 
@@ -1212,7 +1180,6 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 
 	for (int qi=0,B=0; B<4; B++) {
 		mBurst.time(mNextWriteTime);
-        OBJLOG(WARNING) << "HACKINGLAB_TRANSMIT: value of mEncrypted in loop: " << mEncrypted;
 		// encrypt y
 		if (mEncrypted == ENCRYPT_YES) {
 			unsigned char block1[15];
@@ -1225,15 +1192,11 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 			int t2 = fn % 26;
 			int t3 = fn % 51;
 			int count = (t1<<11) | (t3<<5) | t2;
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall1 " << LOGVAR(mEncryptionAlgorithm);
 			if (mEncryptionAlgorithm == 1) {
-                LOG(DEBUG) << "HACKINGLAB: EncryptionCall11 " << LOGVAR(mEncryptionAlgorithm);
 				A51_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 3) {
-                LOG(DEBUG) << "HACKINGLAB: EncryptionCall13 " << LOGVAR(mEncryptionAlgorithm);
 				A53_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 2) {
-                LOG(DEBUG) << "HACKINGLAB: EncryptionCall12 " << LOGVAR(mEncryptionAlgorithm);
                 A52_GSM(kc, 64, count, block1, block2);
 			} else {
 				devassert(0);
@@ -1253,23 +1216,22 @@ void L1Encoder::transmit(BitVector2 *mI, BitVector2 *mE, const int *qbits)
 				// no noise or encryption. use mI below.
 			}
 		}
-        OBJLOG(WARNING) << "HACKINGLAB_TRANSMIT: value of mEncrypted after if " << mEncrypted;
-        OBJLOG(WARNING) << "HACKINGLAB_TRANSMIT:  value of p " << p;
+
 		// Copy in the "encrypted" bits, GSM 05.03 4.1.5, 05.02 5.2.3.
 		if (p || mEncrypted == ENCRYPT_YES) {
-			OBJLOG(WARNING) << "transmit mE["<<B<<"]=" << mE[B];
+			OBJLOG(DEBUG) << "transmit mE["<<B<<"]=" << mE[B];
 			mE[B].segment(0,57).copyToSegment(mBurst,3);
 			mE[B].segment(57,57).copyToSegment(mBurst,88);
 		} else {
 			// no noise or encryption.  use mI.
-			OBJLOG(WARNING) << "transmit mI["<<B<<"]=" << mI[B];
+			OBJLOG(DEBUG) << "transmit mI["<<B<<"]=" << mI[B];
 			mI[B].segment(0,57).copyToSegment(mBurst,3);
 			mI[B].segment(57,57).copyToSegment(mBurst,88);
 		}
 		mBurst.Hl(qbits[qi++]);
 		mBurst.Hu(qbits[qi++]);
 		// Send it to the radio.
-		OBJLOG(WARNING) << "transmit mBurst=" << mBurst;
+		OBJLOG(DEBUG) << "transmit mBurst=" << mBurst;
 		mDownstream->writeHighSideTx(mBurst,"Shared");
 		rollForward();
 	}
@@ -1493,9 +1455,6 @@ void TCHFRL1Decoder::setAmrMode(AMRMode wMode)
 
 void TCHFACCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 {
-
-	OBJLOG(WARNING) << "IN TCHFACCHL1Decoder::writeLowSideRx";
-
 	L1FEC *fparent = parent();
 	if (fparent->mGprsReserved) {	// Channel is reserved for gprs.
 		if (parent()->mGPRSFEC) {	// If set, bursts are delivered to this FEC in GPRS.
@@ -1503,10 +1462,10 @@ void TCHFACCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 		}
 		return;	// done
 	}
-	OBJLOG(WARNING) << "TCHFACCHL1Decoder " << inBurst <<LOGVAR(mHandoverPending);	// <<LOGVAR(mT3101.remaining());
+	OBJLOG(DEBUG) << "TCHFACCHL1Decoder " << inBurst <<LOGVAR(mHandoverPending);	// <<LOGVAR(mT3101.remaining());
 	// If the channel is closed, ignore the burst.
 	if (!decActive()) {
-		OBJLOG(WARNING) << "TCHFACCHL1Decoder not active, ignoring input";
+		OBJLOG(DEBUG) << "TCHFACCHL1Decoder not active, ignoring input";
 		return;
 	}
 	ScopedLock lock(mDecLock,__FILE__,__LINE__);	// this better be redundant.
@@ -1517,20 +1476,20 @@ void TCHFACCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 		// Based on the RACHL1Decoder.
 
 		//LOG(DEBUG) << "handover access " << inBurst;
-		OBJLOG(WARNING) << "handover access " << inBurst;
+		OBJLOG(NOTICE) << "handover access " << inBurst;
 
 		// Decode the burst.
 		const SoftVector e(inBurst.segment(49,36));
 		//e.decode(mVCoder,mHU);
 		mVCoder.decode(e,mHU);
-		OBJLOG(WARNING) << "handover access U=" << mHU;
+		OBJLOG(DEBUG) << "handover access U=" << mHU;
 		// Check the tail bits -- should all the zero.
 		if (mHU.peekField(14,4)) return;
 		// Check the parity.
 		unsigned sentParity = ~mHU.peekField(8,6);
 		unsigned checkParity = mHD.parity(mHParity);
 		unsigned encodedBSIC = (sentParity ^ checkParity) & 0x03f;
-		OBJLOG(WARNING) << "handover access sentParity " << sentParity
+		OBJLOG(DEBUG) << "handover access sentParity " << sentParity
 			<< " checkParity " << checkParity
 			<< " endcodedBSIC " << encodedBSIC;
 		if (encodedBSIC != gBTS.BSIC()) return;
@@ -1569,7 +1528,6 @@ void TCHFACCHL1Decoder::writeLowSideRx(const RxBurst& inBurst)
 // then calls this, and if this returns true, goes ahead with decoding.
 bool TCHFACCHL1Decoder::processBurst( const RxBurst& inBurst)
 {
-    OBJLOG(WARNING) << "HACKINGLAB_TCHFACCHL1Decoder_processBurst: value of mEncrypted " << mEncrypted;
 	// Accept the burst into the deinterleaving buffer.
 	// Return true if we are ready to interleave.
 
@@ -1584,7 +1542,7 @@ bool TCHFACCHL1Decoder::processBurst( const RxBurst& inBurst)
 	int B = mMapping.reverseMapping(inBurst.time().FN()) % 8;
 	// A negative value means that the demux is misconfigured.
 	assert(B>=0);
-	OBJLOG(WARNING) << "TCHFACCHL1Decoder B=" << B << " " << inBurst;
+	OBJLOG(DEBUG) << "TCHFACCHL1Decoder B=" << B << " " << inBurst;
 
 	// Pull the data fields (e-bits) out of the burst and put them into i[B][].
 	// GSM 05.03 3.1.4
@@ -1599,7 +1557,7 @@ bool TCHFACCHL1Decoder::processBurst( const RxBurst& inBurst)
 	// Every 4th frame is the start of a new block.
 	// So if this isn't a "4th" frame, return now.
 	if (B%4!=3) return false;
-    OBJLOG(WARNING) << "HACKINGLAB_TCHFACCHL1Decoder_processBurst: value of mEncrypted before check " << mEncrypted;
+
 	if (mEncrypted == ENCRYPT_MAYBE) {
 		saveMi();
 	}
@@ -1627,17 +1585,16 @@ bool TCHFACCHL1Decoder::processBurst( const RxBurst& inBurst)
 		stolenbits = stealBitsU[0] + stealBitsU[1] + stealBitsU[2] + stealBitsU[3] +
 			stealBitsL[4] + stealBitsL[5] + stealBitsL[6] + stealBitsL[7];
 	}
-	OBJLOG(WARNING) <<"TCHFACCHL1Decoder Hl=" << inBurst.Hl() << " Hu=" << inBurst.Hu();
+	OBJLOG(DEBUG) <<"TCHFACCHL1Decoder Hl=" << inBurst.Hl() << " Hu=" << inBurst.Hu();
 	bool okFACCH = false;
 	if (stolenbits) {	// If any of the 8 stolen bits are set, try decoding as FACCH.
 		okFACCH = decode();	// Calls SharedL1Decoder::decode() to decode mC into mU
-        OBJLOG(WARNING) << "HACKINGLAB_TCHFACCHL1Decoder_processBurst: value of mEncrypted in stolenbits " << mEncrypted;
 		if (!okFACCH && mEncrypted == ENCRYPT_MAYBE) {
 			// (doug) We don't want to start decryption until we get the (encrypted) layer 2 acknowledgement
 			// of the Ciphering Mode Command, so we start maybe decrypting when we send the command,
 			// and when the frame comes along, we'll see that it doesn't pass normal decoding, but
 			// when we try again with decryption, it will pass.  Unless it's just noise.
-			OBJLOG(WARNING) << "TCHFACCHL1Decoder: try decoding again with decryption";
+			OBJLOG(DEBUG) << "TCHFACCHL1Decoder: try decoding again with decryption";
 			restoreMi();
 			decrypt(-1);
 			// re-deinterleave
@@ -1645,9 +1602,8 @@ bool TCHFACCHL1Decoder::processBurst( const RxBurst& inBurst)
 			else deinterleaveTCH(0);
 			// re-decode
 			okFACCH = decode();
-            OBJLOG(WARNING) << "HACKINGLAB_TCHFACCHL1Decoder_processBurst: value of okFACCH " << okFACCH;
 			if (okFACCH) {
-				OBJLOG(WARNING) << "TCHFACCHL1Decoder: success on 2nd try";
+				OBJLOG(DEBUG) << "TCHFACCHL1Decoder: success on 2nd try";
 				// We've successfully decoded an encrypted frame.  Start decrypting all uplink frames.
 				mEncrypted = ENCRYPT_YES;
 				// Also start encrypting downlink frames.
@@ -1657,7 +1613,7 @@ bool TCHFACCHL1Decoder::processBurst( const RxBurst& inBurst)
 		}
 
 		if (okFACCH) {	// This frame was stolen for sure.
-			OBJLOG(WARNING) <<"TCHFACCHL1Decoder good FACCH frame";
+			OBJLOG(DEBUG) <<"TCHFACCHL1Decoder good FACCH frame";
 			//countGoodFrame();
 			mD.LSB8MSB();
 			// This also resets T3109.
@@ -1677,7 +1633,7 @@ bool TCHFACCHL1Decoder::processBurst( const RxBurst& inBurst)
 		countStolenFrame(1);	// was 4, why?  We are counting frames, which occur every 4 bursts (even though they are spread over 8 bursts.)
 		countBER(mVCoder.getBEC(),378);
 	} else if (traffic) {
-		OBJLOG(WARNING) <<"TCHFACCHL1Decoder good TCH frame";
+		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder good TCH frame";
 		countGoodFrame(1);	// was 4, why?
 		countBER(mVCoder.getBEC(),378);
 		// Don't let the channel timeout.
@@ -1726,15 +1682,11 @@ void TCHFACCHL1Decoder::decrypt(int B)
 		int t2 = fn % 26;
 		int t3 = fn % 51;
 		int count = (t1<<11) | (t3<<5) | t2;
-        LOG(DEBUG) << "HACKINGLAB: EncryptionCall2 " << LOGVAR(mEncryptionAlgorithm);
 		if (mEncryptionAlgorithm == 1) {
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall21 " << LOGVAR(mEncryptionAlgorithm);
 			A51_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 3) {
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall23 " << LOGVAR(mEncryptionAlgorithm);
 			A53_GSM(mKc, 64, count, block1, block2);
 		} else if (mEncryptionAlgorithm == 2){
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall22 " << LOGVAR(mEncryptionAlgorithm);
             A52_GSM(mKc, 64, count, block1, block2);
 		} else {
 			devassert(0);
@@ -1744,7 +1696,6 @@ void TCHFACCHL1Decoder::decrypt(int B)
 				mI[i].settfb(j, 1.0 - mI[i].softbit(j));
 			}
 		}
-		LOG(WARNING) << "HACKINGLAB: DECRYPT value " << LOGVAR(mI[i]);
 	}
 }
 
@@ -1752,15 +1703,13 @@ void TCHFACCHL1Decoder::decrypt(int B)
 
 void TCHFACCHL1Decoder::deinterleaveTCH(int blockOffset )
 {
-	OBJLOG(WARNING) <<"TCHFACCHL1Decoder blockOffset=" << blockOffset;
+	OBJLOG(DEBUG) <<"TCHFACCHL1Decoder blockOffset=" << blockOffset;
 	for (int k=0; k<456; k++) {
 		int B = ( k + blockOffset ) % 8;
 		int j = 2*((49*k) % 57) + ((k%8)/4);
 		mC[k] = mI[B][j];
 		mI[B][j] = 0.5F;
-		//LOG(WARNING) << "HACKINGLAB: INTERLEAVE " << LOGVAR(k) << " value " << LOGVAR(mC[k]);
 	}
-	LOG(WARNING) << "HACKINGLAB: INTERLEAVE value " << LOGVAR(mC);
 }
 
 void TCHFACCHL1Decoder::addToSpeechQ(AudioFrame *newFrame)  { mSpeechQ.write(newFrame); }
@@ -1902,7 +1851,7 @@ bool TCHFRL1Decoder::decodeTCH_GSM(bool stolen,const SoftVector *wC)
 
 	// Simulate high FER for testing?
 	if (random()%100 < gConfig.getNum("Test.GSM.SimulatedFER.Uplink")) {
-		OBJLOG(WARNING) << "simulating dropped uplink vocoder frame at " << mReadTime;
+		OBJLOG(DEBUG) << "simulating dropped uplink vocoder frame at " << mReadTime;
 		stolen = true;
 	}
 
@@ -2032,7 +1981,6 @@ bool TCHFRL1Decoder::decodeTCH_GSM(bool stolen,const SoftVector *wC)
 
 bool TCHFRL1Decoder::decodeTCH_AFS(bool stolen, const SoftVector *wC)
 {
-    LOG(WARNING) << "HACKINGLAB: TCHFRL1Decoder-Decoding TCH_AFS, stolen: " << LOGVAR(stolen);
 	// GSM 05.03 3.1.2, but backwards
 	// except for full speed AMR, which is 3.9.4
 
@@ -2070,16 +2018,15 @@ bool TCHFRL1Decoder::decodeTCH_AFS(bool stolen, const SoftVector *wC)
 		BitVector2 class1A = mTCHU.segment(0, mClass1ALth);
 		unsigned calcParity = class1A.parity(mTCHParity) & 0x3f;
 
-		OBJLOG(WARNING) <<"TCHFACCHL1Decoder c[]=" << *wC;	// Does a copy.  Gotta love it.
+		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder c[]=" << *wC;	// Does a copy.  Gotta love it.
 		//OBJLOG(DEBUG) <<"TCHFACCHL1Decoder uc[]=" << mTCHUC;
-		OBJLOG(WARNING) <<"TCHFACCHL1Decoder u[]=" << mTCHU;
-		OBJLOG(WARNING) <<"TCHFACCHL1Decoder d[]=" << mTCHD;
-		OBJLOG(WARNING) <<"TCHFACCHL1Decoder sentParity=" << sentParity \
+		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder u[]=" << mTCHU;
+		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder d[]=" << mTCHD;
+		OBJLOG(DEBUG) <<"TCHFACCHL1Decoder sentParity=" << sentParity \
 			<< " calcParity=" << calcParity;
 
 		good = sentParity == calcParity;
 		if (good) {
-            LOG(WARNING) << "HACKINGLAB: good is set";
 			// Undo Um's importance-sorted bit ordering.
 			// See GSM 05.03 3.9.4.2 and Tables 7-14.
 			//BitVector2 payload = mAmrVFrame.payload();
@@ -2127,10 +2074,9 @@ bool TCHFRL1Decoder::decodeTCH_AFS(bool stolen, const SoftVector *wC)
 
 bool TCHFRL1Decoder::decodeTCH(bool stolen, const SoftVector *wC)	// result goes to sendTCHUp()
 {
-    LOG(WARNING) << "HACKINGLAB: TCHFRL1Decoder-DecodeTCH, stolen: " << LOGVAR(stolen);
 	// Simulate high FER for testing?
 	if (random()%100 < gConfig.getNum("Test.GSM.SimulatedFER.Uplink")) {
-		OBJLOG(WARNING) << "simulating dropped uplink vocoder frame at " << mReadTime;
+		OBJLOG(DEBUG) << "simulating dropped uplink vocoder frame at " << mReadTime;
 		stolen = true;
 	}
 
@@ -2353,13 +2299,13 @@ void TCHFACCHL1Encoder::dispatch()
 
 	// Speech latency control.
 	// Since Asterisk is local, latency should be small.
-	OBJLOG(WARNING) <<"TCHFACCHL1Encoder speechQ.size=" << mSpeechQ.size();
+	OBJLOG(DEBUG) <<"TCHFACCHL1Encoder speechQ.size=" << mSpeechQ.size();
 	int maxQ = gConfig.getNum("GSM.MaxSpeechLatency");
 	while ((int)mSpeechQ.size() > maxQ) delete mSpeechQ.read();
 
 	// Send, by priority: (1) FACCH, (2) TCH, (3) filler.
 	if (L2Frame *fFrame = mL2Q.readNoBlock()) {
-		OBJLOG(WARNING) <<"TCHFACCHL1Encoder FACCH " << *fFrame;
+		OBJLOG(DEBUG) <<"TCHFACCHL1Encoder FACCH " << *fFrame;
 		currentFACCH = true;
 		// Send to GSMTAP
 		if (gConfig.getBool("Control.GSMTAP.GSM")) {
@@ -2371,16 +2317,16 @@ void TCHFACCHL1Encoder::dispatch()
 		fFrame->copyTo(mU);
 		// Encode u[] to c[], GSM 05.03 4.1.2 and 4.1.3.
 		encode41();
-		OBJLOG(WARNING) <<"TCHFACCHL1Encoder FACCH c[]=" << mC;
+		OBJLOG(DEBUG) <<"TCHFACCHL1Encoder FACCH c[]=" << mC;
 		delete fFrame;
 		// Flush the vocoder FIFO to limit latency.
 		while (mSpeechQ.size()>0) delete mSpeechQ.read();
 	} else if (AudioFrame *tFrame = mSpeechQ.readNoBlock()) {
-		OBJLOG(WARNING) <<"TCHFACCHL1Encoder TCH " << *tFrame;
+		OBJLOG(DEBUG) <<"TCHFACCHL1Encoder TCH " << *tFrame;
 		// Encode the speech frame into c[] as per GSM 05.03 3.1.2.
 		encodeTCH(tFrame);
 		delete tFrame;
-		OBJLOG(WARNING) <<"TCHFACCHL1Encoder TCH c[]=" << mC;
+		OBJLOG(DEBUG) <<"TCHFACCHL1Encoder TCH c[]=" << mC;
 	} else {
 		// We have no ready data but must send SOMETHING.
 		if (!mPreviousFACCH) {
@@ -2395,7 +2341,7 @@ void TCHFACCHL1Encoder::dispatch()
 			frame.copyTo(mU);
 			encode41();
 		}
-		OBJLOG(WARNING) <<"TCHFACCHL1Encoder filler FACCH=" << currentFACCH << " c[]=" << mC;
+		OBJLOG(DEBUG) <<"TCHFACCHL1Encoder filler FACCH=" << currentFACCH << " c[]=" << mC;
 	}
 
 	// Interleave c[] to i[].
@@ -2412,7 +2358,6 @@ void TCHFACCHL1Encoder::dispatch()
 		// set TDMA position
 		mBurst.time(mNextWriteTime);
 		// encrypt x
-        OBJLOG(WARNING) <<"HACKINGLAB_TCHFACCHL1Encoder_Dispatch:  value of mEncrypted " << mEncrypted;
 		if (mEncrypted == ENCRYPT_YES) {
 			unsigned char block1[15];
 			unsigned char block2[15];
@@ -2424,15 +2369,11 @@ void TCHFACCHL1Encoder::dispatch()
 			int t2 = fn % 26;
 			int t3 = fn % 51;
 			int count = (t1<<11) | (t3<<5) | t2;
-            LOG(DEBUG) << "HACKINGLAB: EncryptionCall3 " << LOGVAR(mEncryptionAlgorithm);
 			if (mEncryptionAlgorithm == 1) {
-                LOG(DEBUG) << "HACKINGLAB: EncryptionCall31 " << LOGVAR(mEncryptionAlgorithm);
 				A51_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 3) {
-                LOG(DEBUG) << "HACKINGLAB: EncryptionCall33 " << LOGVAR(mEncryptionAlgorithm);
 				A53_GSM(kc, 64, count, block1, block2);
 			} else if (mEncryptionAlgorithm == 2) {
-                LOG(DEBUG) << "HACKINGLAB: EncryptionCall32 " << LOGVAR(mEncryptionAlgorithm);
                 A52_GSM(kc, 64, count, block1, block2);
 			} else {
 				devassert(0);
@@ -2453,8 +2394,6 @@ void TCHFACCHL1Encoder::dispatch()
 			}
 		}
 		// copy in the bits
-        OBJLOG(WARNING) <<"HACKINGLAB_TCHFACCHL1Encoder_Dispatch:  value of mEncrypted " << mEncrypted;
-        OBJLOG(WARNING) <<"HACKINGLAB_TCHFACCHL1Encoder_Dispatch:  value of p " << p;
 		if (p || mEncrypted == ENCRYPT_YES) {
 			mE[B+mOffset].segment(0,57).copyToSegment(mBurst,3);
 			mE[B+mOffset].segment(57,57).copyToSegment(mBurst,88);
@@ -2467,7 +2406,7 @@ void TCHFACCHL1Encoder::dispatch()
 		mBurst.Hu(currentFACCH);
 		mBurst.Hl(mPreviousFACCH);
 		// send
-		OBJLOG(WARNING) <<"TCHFACCHEncoder sending burst=" << mBurst;
+		OBJLOG(DEBUG) <<"TCHFACCHEncoder sending burst=" << mBurst;
 		mDownstream->writeHighSideTx(mBurst,"FACCH");
 		rollForward();
 	}
