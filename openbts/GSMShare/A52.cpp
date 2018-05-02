@@ -130,7 +130,7 @@ void A52keysetup(byte key[8], word frame) {
      * control rule is temporarily disabled.) */
     for (i=0; i<64; i++) {
         clock(1,0); /* always clock */
-        keybit = (key[i/8] >> (i&7)) & 1; /* The i-th bit of the key */
+        keybit = (key[7-i/8] >> (i&7)) & 1; /* The i-th bit of the key */
         A52R1 ^= keybit; A52R2 ^= keybit; A52R3 ^= keybit;
         A52R4 ^= keybit;
     }
@@ -203,3 +203,4 @@ void A52_GSM( byte *key, int klen, int count, byte *block1, byte *block2 )
 	A52keysetup(key, count); // TODO - frame and count are not the same
 	A52run(block1, block2);
 }
+
