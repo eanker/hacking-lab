@@ -4,7 +4,7 @@
 *.deb
 *.dsc
 *.tar.gz
-#liba53
+liba53
 #CommonLibs
 #NodeManager
 #openbts
